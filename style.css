@@ -1,0 +1,662 @@
+/* GENERAL STYLES */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #111111; /* Dark background for the entire website */
+  color: #e6e6e6; /* Light grey text color */
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  color: #e6e6e6; /* Light grey text color for all text elements */
+  margin: 0;
+}
+
+/* TRANSITIONS */
+
+a,
+.btn,
+.icon {
+  transition: all 300ms ease;
+}
+
+/* NAVIGATION STYLES */
+
+nav,
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+nav {
+  justify-content: space-between;
+  padding: 20px 40px;
+  background-color: #111111; /* Dark black background for the header to match the entire site */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.nav-links {
+  gap: 2rem;
+  list-style: none;
+  font-size: 1.2rem;
+}
+
+a {
+  color: #e6e6e6; /* Light grey text color for links */
+  text-decoration: none;
+}
+
+a:hover {
+  color: #00c8ff; /* Hover color for links */
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: #00c8ff; /* Hover underline color */
+}
+
+.logo {
+  font-size: 2rem;
+  color: #d896ff; /* Logo color */
+}
+
+.logo:hover {
+  cursor: default;
+}
+
+/* SECTION STYLES */
+
+section {
+  padding: 40px 20px; /* Reduced padding for all sections */
+  margin: 0 8rem; /* Reduced horizontal margin */
+  background-color: #111111; /* Dark background for sections */
+  border-radius: 10px; /* Rounded corners for sections */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+  color: #e6e6e6; /* Light grey text color for section content */
+}
+
+.section-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+
+/* MAIN CONTENT STYLES */
+
+#main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh; /* Reduced height */
+  text-align: center;
+  position: relative;
+  padding: 0 3x; /* Reduced side padding */
+  margin-top: -20px; /* Reduced top margin */
+}
+
+.intro-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.intro-text {
+  position: relative;
+  color: #e6e6e6; /* Default text color */
+}
+
+.greeting {
+  font-size: 3.5rem; /* Increased font size */
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px; /* Adjusted margin for better spacing */
+}
+
+.profile-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.intro-text {
+    position: relative;
+    color: #e6e6e6; /* Default text color */
+    display: flex; /* Use flexbox to align items horizontally */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Align items vertically to the center */
+    gap: 20px; /* Add space between elements */
+  }
+  
+  .intro-text h1 {
+    font-size: 5rem; /* Significantly increased font size */
+    font-weight: 700;
+    line-height: 1.2; /* Adjusted line-height for readability */
+    margin-bottom: 20px; /* Adjusted space below the heading */
+    display: inline-block; /* Ensure each line behaves as a block element */
+    text-align: center; /* Center the text */
+    white-space: nowrap; /* Prevent line breaks within the text */
+  }
+  
+  .intro-text h1 span {
+    display: inline; /* Display each span inline to spread text horizontally */
+    margin-right: 10px; /* Add some space between words */
+  }
+  
+
+.highlight-purple {
+  color: #d896ff;
+}
+
+.highlight-yellow {
+  color: #ffcc66;
+}
+
+.highlight-blue {
+  color: #00c8ff;
+}
+.highlight-green {
+    color: #16f1d1;
+  }
+
+  .details {
+    display: flex;
+    justify-content: flex-start; /* Align content to the left */
+    align-items: center;
+    gap: 30px; /* Adjusted gap for spacing between text and icons */
+    margin-bottom: 25px; /* Adjusted margin below the details */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+  }
+  
+  .location {
+    font-size: 2.5rem; /* Increased font size for better visibility */
+    font-weight: bold; /* Made text bold */
+    color: #e6e6e6;
+    margin-right: 10px; /* Adjusted right margin for spacing */
+  }
+  
+
+
+/* BUTTON STYLES */
+
+.connect-button,
+.resume-button {
+  background-color: transparent;
+  border: 2px solid #0277b5; /* Blue border for buttons */
+  padding: 15px 25px; /* Increased padding for larger buttons */
+  border-radius: 30px; /* Rounded corners for all buttons */
+  color: #e6e6e6; /* Light grey text color for all buttons */
+  font-size: 1.5rem; /* Increased font size for better visibility */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 200px; /* Increased width for larger buttons */
+  text-align: center; /* Center text in all buttons */
+  display: flex; /* Added flexbox to align icon and text */
+  align-items: center; /* Vertically center icon and text */
+  justify-content: center; /* Horizontally center icon and text */
+}
+
+.connect-button:hover,
+.resume-button:hover {
+  background-color: #0277b5;
+  color: #111111; /* Dark text color on hover */
+  transform: scale(1.05); /* Slight scale up on hover */
+}
+
+.resume-button {
+  border-color: #00c8ff; /* Blue border for "Download Resume" button */
+}
+
+.resume-button:hover {
+  background-color: #00c8ff; /* Blue background on hover for "Download Resume" button */
+}
+
+/* ANIMATIONS */
+
+.greeting, .intro-text h1, .details, .tagline {
+  animation: fadeIn 2s ease-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* PROFILE SECTION */
+
+#profile {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  align-items: center;
+  min-height: 80vh;
+  text-align: center;
+}
+
+.section__pic-container {
+  display: flex;
+  height: 400px;
+  width: 400px;
+  margin: auto 0;
+  border-radius: 50%; /* Circle profile image */
+  overflow: hidden; /* Ensure image fits within circle */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Shadow for profile picture */
+}
+
+.section__text {
+  align-self: center;
+  text-align: center;
+}
+
+.section__text p {
+  font-weight: 600;
+}
+
+.section__text__p1 {
+  text-align: center;
+  color: #d896ff; /* "Hello, I'm" */
+  font-size: 2rem;
+}
+
+.section__text__p2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+  color: #00c8ff; /* "Fullstack Developer" */
+}
+
+.title {
+  font-size: 3rem;
+  text-align: center;
+  color: #ffffff; /* White text for titles */
+}
+
+/* SOCIALS CONTAINER */
+
+#socials-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+.icon {
+  cursor: pointer;
+  height: 60px; /* Increased size for larger icons */
+  width: 60px; /* Ensure width matches height */
+  transition: all 300ms ease; /* Smooth transition effect */
+}
+
+.icon:hover {
+  transform: scale(1.1); /* Slight scale up on hover */
+}
+
+/* ABOUT SECTION */
+
+#about {
+  position: relative;
+}
+
+.about-containers {
+  gap: 2rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.about-details-container {
+  justify-content: center;
+  flex-direction: column;
+}
+
+.about-containers,
+.about-details-container {
+  display: flex;
+}
+
+.about-pic {
+  border-radius: 10px;
+  overflow: hidden; /* Ensure image fits within the rounded corner */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Shadow for about picture */
+}
+
+.arrow {
+  position: absolute;
+  right: -5rem;
+  bottom: 2.5rem;
+}
+
+.details-container {
+  padding: 1.5rem;
+  flex: 1;
+  background: #1b1b1b; /* Dark background for details container */
+  border-radius: 10px;
+  border: 2px solid #ff8c00; /* Orange border color */
+  text-align: center;
+  color: #e6e6e6;
+}
+
+/* EXPERIENCE SECTION */
+
+#experience {
+  position: relative;
+}
+
+.experience-sub-title {
+  color: #00c8ff; /* Blue color for sub-title */
+  font-weight: 600;
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+}
+
+.experience-details-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.article-container {
+  display: flex;
+  text-align: initial;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 2.5rem;
+  justify-content: space-around;
+}
+
+article {
+  display: flex;
+  width: 10rem;
+  justify-content: space-around;
+  gap: 0.5rem;
+}
+
+article .icon {
+  cursor: default;
+  color: #e6e6e6; /* Light grey color for article icons */
+}
+
+/* PROJECTS SECTION */
+
+#projects {
+  position: relative;
+}
+
+.color-container {
+  border-color: #ff8c00; /* Orange border color for projects */
+  background: #1b1b1b; /* Dark background for projects */
+}
+
+.project-img {
+  border-radius: 10px;
+  width: 90%;
+  height: 90%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Shadow for project images */
+}
+
+.project-title {
+  margin: 1rem;
+  color: #ffffff; /* White text color for project titles */
+}
+
+.project-btn {
+  color: #e6e6e6; /* Light grey text color for project buttons */
+  border-color: #ff8c00; /* Orange border color for project buttons */
+}
+
+/* CONTACT SECTION */
+
+#contact {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 70vh;
+  background-color: #1b1b1b; /* Dark background for contact section */
+  border-radius: 10px; /* Rounded corners for contact section */
+  padding: 20px;
+}
+
+.contact-info-upper-container {
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  border: 2px solid #ff8c00; /* Orange border for contact section */
+  background-color: #111111; /* Dark background for contact info */
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.contact-info-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1rem;
+}
+
+.contact-info-container p {
+  font-size: larger;
+  color: #e6e6e6; /* Light grey text color */
+}
+
+.contact-icon {
+  cursor: default;
+  color: #e6e6e6; /* Light grey color for contact icons */
+}
+
+.email-icon {
+  height: 2.5rem;
+}
+
+/* FOOTER STYLES */
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #111111; /* Dark background for footer */
+  padding: 40px;
+  color: #e6e6e6; /* Light grey text color */
+}
+
+.footer-tagline {
+  flex: 1;
+}
+
+.footer-tagline h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  color: #ffffff; /* White text color */
+}
+
+.highlight-aesthetics {
+  color: #d896ff; /* Pink highlight */
+}
+
+.highlight-functionality {
+  color: #00c8ff; /* Blue highlight */
+}
+
+.footer-explore, .footer-follow {
+  flex: 1;
+}
+
+.footer-explore h3, .footer-follow h3 {
+  color: #ff8c00; /* Orange text color for section titles */
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.footer-explore ul, .footer-follow ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-explore li, .footer-follow li {
+  margin-bottom: 10px;
+}
+
+.footer-explore a, .footer-follow a {
+  text-decoration: none;
+  color: #e6e6e6; /* Light grey text color for links */
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.footer-follow .social-links i {
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+.footer-follow .social-links a:hover {
+  color: #00c8ff; /* Hover color for social links */
+}
+
+.footer-actions {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.action-card {
+  background-color: #1b1b1b; /* Slightly lighter dark background */
+  padding: 15px;
+  border-radius: 8px;
+  text-align: left;
+  position: relative;
+  color: #e6e6e6;
+}
+
+.action-card h3 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+  color: #ffffff; /* White text color */
+}
+
+.action-card p {
+  margin: 0;
+  font-size: 14px;
+  color: #e6e6e6; /* Light grey for subtitles */
+}
+
+.action-button {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: 2px solid #3fff00; /* Green border color */
+  border-radius: 50%;
+  color: #3fff00; /* Green text color */
+  padding: 8px;
+  font-size: 16px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.action-button:hover {
+  background-color: #3fff00; /* Green background on hover */
+  color: #111111; /* Dark text color on hover */
+  transform: translateY(-50%) scale(1.1); /* Scale effect on hover */
+}
+
+/* MEDIA QUERIES FOR RESPONSIVENESS */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  section {
+    margin: 0;
+    padding: 20px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-tagline, .footer-explore, .footer-follow, .footer-actions {
+    flex: none;
+    margin-bottom: 20px;
+  }
+}
+
+.nav-button {
+  position: relative;
+  display: inline-block;
+  padding: 15px 30px; /* Increased padding for larger buttons */
+  font-size: 1.5rem; /* Increased font size */
+  color: #ffffff;
+  background-color: transparent;
+  border: 2px solid #ffffff;
+  border-radius: 30px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: color 0.3s ease;
+}
+
+.nav-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #20a4fc;
+  z-index: 0;
+  transition: transform 0.4s ease;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.nav-button:hover::before {
+  transform: scaleX(1);
+}
+
+.nav-button:hover {
+  color: white; /* Change text color to white on hover */
+}
+
+.nav-button span {
+  position: relative;
+  z-index: 1; /* Ensure text stays above the pseudo-element */
+  display: inline-block;
+  transition: color 0.4s ease; /* Smooth transition for text color */
+}
+
+/* Resume LinkedIn Github Icons */
+.icon {
+  cursor: pointer;
+  height: 60px; /* Increased size for larger icons */
+  width: 60px; /* Make sure width matches height */
+  transition: all 300ms ease; /* Smooth transition effect */
+}
+
+.icon:hover {
+  transform: scale(1.7); /* Slight scale up on hover */
+}

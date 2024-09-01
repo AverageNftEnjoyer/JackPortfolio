@@ -1,0 +1,227 @@
+/* General Contact Page Styles */
+body {
+    background-color: #ffffff; /* White background for a clean look */
+    color: #333333; /* Dark text color for contrast */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Navigation Styles */
+  nav {
+    background-color: #f8f8f8; /* Light grey background for navigation */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  .nav-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+  }
+  
+  .nav-links li {
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .nav-links li:hover {
+    transform: scale(1.1);
+    color: #007bff; /* Blue accent color on hover */
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: #333333; /* Dark text color for navigation links */
+  }
+  
+  .hamburger-menu {
+    display: none; /* Hidden by default */
+  }
+  
+  .logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #007bff; /* Blue accent color for the logo */
+  }
+  
+  /* Contact Section Styles */
+  #contact {
+    padding: 60px 20px;
+    background-color: #ffffff; /* Maintain white background for the contact section */
+    border-radius: 10px;
+    margin: 40px auto;
+    max-width: 1000px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05); /* Light shadow for depth */
+    animation: fadeIn 1.5s ease-in-out; /* Animation for the section entrance */
+  }
+  
+  .section__text__p1 {
+    color: #007bff; /* Blue color for a catchy intro text */
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  
+  .contact-info-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 30px;
+  }
+  
+  .contact-card {
+    background-color: #f0f0f0; /* Light grey background for cards */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 280px;
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    animation: slideUp 1s ease-out; /* Slide-up effect for contact cards */
+  }
+  
+  .contact-card:hover {
+    transform: translateY(-10px);
+    background-color: #e6e6e6; /* Slightly darker background on hover */
+  }
+  
+  .contact-card h3 {
+    color: #007bff; /* Blue color for card titles */
+    margin-bottom: 10px;
+  }
+  
+  .contact-card p {
+    margin: 10px 0;
+    color: #555555; /* Slightly lighter grey text */
+  }
+  
+  .btn {
+    padding: 12px 24px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 15px;
+    background-color: transparent;
+    color: #007bff;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .btn-color-1 {
+    background-color: #007bff;
+    color: #ffffff;
+  }
+  
+  .btn-color-1:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05);
+  }
+  
+  .btn-color-2 {
+    background-color: #ffffff; /* White background for secondary button */
+    color: #007bff;
+  }
+  
+  .btn-color-2:hover {
+    background-color: #007bff;
+    color: #ffffff;
+    transform: scale(1.05);
+  }
+  
+  .social-media {
+    margin-top: 40px;
+  }
+  
+  .social-media h2 {
+    color: #007bff;
+    margin-bottom: 20px;
+  }
+  
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .social-icons a {
+    color: #333333;
+    font-size: 2em;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .social-icons a:hover {
+    color: #007bff; /* Blue color on hover */
+    transform: scale(1.2);
+  }
+  
+  /* Footer Styles */
+  footer {
+    background-color: #f8f8f8; /* Light grey background for footer */
+    color: #666666; /* Medium grey text color */
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 20px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Shadow for footer depth */
+  }
+  
+  footer .nav-links-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  footer .nav-links li {
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  footer .nav-links li:hover {
+    transform: scale(1.1);
+    color: #007bff;
+  }
+  
+  /* Media Queries for Responsiveness */
+  @media (max-width: 768px) {
+    .contact-info-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .hamburger-menu {
+      display: block; /* Show hamburger menu on smaller screens */
+    }
+  
+    #desktop-nav {
+      display: none; /* Hide desktop nav on smaller screens */
+    }
+  
+    .menu-links {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .hamburger-menu.active .menu-links {
+      display: flex;
+    }
+  }
+  
+  /* Keyframes for Animations */
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
+  @keyframes slideUp {
+    0% { transform: translateY(20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+  
