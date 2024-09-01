@@ -651,12 +651,26 @@ article .icon {
 
 /* Resume LinkedIn Github Icons */
 .icon {
-  cursor: pointer;
-  height: 60px; /* Increased size for larger icons */
-  width: 60px; /* Make sure width matches height */
-  transition: all 300ms ease; /* Smooth transition effect */
-}
-
-.icon:hover {
-  transform: scale(1.7); /* Slight scale up on hover */
-}
+    cursor: pointer;
+    height: 60px;
+    width: 60px;
+    transition: transform 300ms ease; 
+  }  
+  
+  .icon:hover {
+    transform: translateX(10px) translateY(-10px); 
+  }
+  
+/* Initial state for all animated elements */
+.scroll-animation {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  /* Animation when element is in view */
+  .scroll-animation.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
