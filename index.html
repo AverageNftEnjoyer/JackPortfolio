@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jack Pastor Portfolio</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -16,20 +17,23 @@
   </head>
   <body>
     <nav id="desktop-nav">
-      <div class="logo">Jack Pastor</div>
-      <div>
-        <ul class="nav-links">
-          <li><a href="index.html" class="nav-button">Home</a></li>
-          <li><a href="#about" class="nav-button">About</a></li>
-          <li><a href="projects.html" class="nav-button">Projects</a></li>
-          <li><a href="contact.html" class="nav-button">Contact Me</a></li>
-        </ul>
-      </div>
-    </nav>
+        <div class="nav-left">
+          <ul class="nav-links-left">
+            <li><a href="index.html" class="nav-button">Home</a></li>
+          </ul>
+        </div>
+        <div class="nav-right">
+          <ul class="nav-links">
+            <li><a href="#about" class="nav-button">About</a></li>
+            <li><a href="projects.html" class="nav-button">Projects</a></li>
+            <li><a href="contact.html" class="nav-button">Contact Me</a></li>
+          </ul>
+        </div>
+      </nav>      
 
     <!-- Intro Section -->
-    <section id="main-content">
-      <div class="intro-container">
+    <section id="main-content" class="fade-in-up">
+        <div class="intro-container">
         <div class="intro-text">
           <p class="greeting">
             <img src="./assets/NFT.avif" alt="Profile" class="profile-icon" />
@@ -42,7 +46,7 @@
             <span class="highlight-blue">ENTHUSIAST.</span>
           </h1>
           <div class="details">
-            <p class="location" id="typing-text">//</p> <!-- Placeholder for typing effect -->
+            <p class="location" id="typing-text">//</p> 
             <img
               src="./assets/linkedin.png"
               alt="My LinkedIn profile"
@@ -50,194 +54,179 @@
               onclick="location.href='https://www.linkedin.com/in/jack-pastor-816157223/'"
             />
             <img
-              src="./assets/GithubNew.png"
+              src="./assets/rainbowgithub.png"
               alt="My Github profile"
-              class="icon move-on-hover"
+              class="icon move-on-hover github-icon"
               onclick="location.href='https://github.com/AverageNftEnjoyer'"
             />
             <img
-              src="./assets/RI.png"
+              src="./assets/colorfulresume.png"
               alt="My Resume"
-              class="icon move-on-hover"
+              class="icon move-on-hover resume-icon"
               onclick="window.open('./assets/JackPastorResume.pdf')"
             />
+        <img src="./assets/java.png" alt="Java Icon" class="floating-icon" />
+        <img src="./assets/javascript.png" alt="Javascript Icon" class="floating-icon" />
+        <img src="./assets/CSS.png" alt="CSS Icon" class="floating-icon" />
+        <img src="./assets/html.png" alt="HTML Icon" class="floating-icon" />
+        <img src="./assets/python.png" alt="Python Icon" class="floating-icon" />
+        <img src="./assets/Databricks.png" alt="SQL Icon" class="floating-icon" />
+        <img src="./assets/Mongo.png" alt="Mongo Icon" class="floating-icon" />
+        <img src="./assets/react.png" alt="Python Icon" class="floating-icon" />
+        <img src="./assets/GIT.png" alt="GIT Icon" class="floating-icon" />
+        <img src="./assets/snowflake.png" alt="Snowflake Icon" class="floating-icon" />
+        </div> 
           </div>
         </div>
-      </div>
+      </div> 
     </section>
 
     <!-- About Section -->
-    <section id="about">
-      <p class="section__text__p1">Get To Know More</p>
-      <h1 class="title">About Me</h1>
+    <section id="about" class="fade-in-up">
+    <p class="section__text__p8">Get To Know More</p>
+      <h1 class="section__text__p9">About Me</h1>
       <div class="section-container">
         <div class="section__pic-container">
           <img src="./assets/Profile.jpeg" alt="Jack Pastor profile picture" />
         </div>
         <div class="about-details-container">
           <div class="about-containers">
-            <div class="details-container">
+            <div class="Experience-container">
               <img
                 src="./assets/experience.png"
                 alt="Experience icon"
-                class="icon"
+                class="Abouticon"
               />
               <h3>Experience</h3>
-              <p>2+ years <br />Frontend Development</p>
+              <p>2+ years Frontend Development<br />1 year Backend Development </p>
             </div>
-            <div class="details-container">
+            <div class="Education-container">
               <img
                 src="./assets/education.png"
                 alt="Education icon"
-                class="icon"
+                class="Abouticon"
               />
               <h3>Education</h3>
-              <p>B.Sc. Bachelors Degree<br />M.Sc. Masters Degree</p>
+              <p>B.Sc. Bachelors Degree<br />3.3 GPA</p>
             </div>
           </div>
           <div class="text-container">
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic quis
-              reprehenderit et laborum, rem, dolore eum quod voluptate
-              exercitationem nobis, nihil esse debitis maxime facere minus sint
-              delectus velit in eos quo officiis explicabo deleniti dignissimos.
-              Eligendi illum libero dolorum cum laboriosam corrupti quidem,
-              reiciendis ea magnam? Nulla, impedit fuga!
+                Rising senior pursuing a Bachelor's degree in Enterprise Technology Integration with a minor 
+                in Data Science. I have a wide array of experience from front-end web development to back end data programming.
+                My main interest outside of working and studying is Web3 and blockchain technology. 
+                Seeking an entry-level position to apply academic knowledge and contribute to a dynamic team environment. 
+                Proficient in the langauges listed below.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience">
-      <p class="section__text__p1">Explore My</p>
-      <h1 class="title">Experience</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container">
-            <h2 class="experience-sub-title">Frontend Development</h2>
-            <div class="article-container">
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>HTML</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>CSS</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>SASS</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>JavaScript</h3>
-                  <p>Basic</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>TypeScript</h3>
-                  <p>Basic</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Material UI</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-            </div>
+  <!-- Experience Section -->
+<section id="experience" class="fade-in-up">
+    <p class="section__text__p1">Explore My</p>
+    <h1 class="title">Experience</h1>
+    <div class="experience-details-container">
+      <div class="about-containers">
+        <div class="details-container">
+          <h2 class="experience-sub-title">Frontend Development</h2>
+          <div class="article-container">
+            <article>
+              <img src="./assets/checkmark.png" alt="Experience icon" class="CheckmarkIcon" />
+              <div>
+                <h3>HTML</h3>
+                <p>Experienced</p>
+              </div>
+            </article>
+            <article>
+              <img src="./assets/checkmark.png" alt="Experience icon" class="CheckmarkIcon" />
+              <div>
+                <h3>CSS</h3>
+                <p>Experienced</p>
+              </div>
+            </article>
+            <article>
+              <img src="./assets/checkmark.png" alt="Experience icon" class="CheckmarkIcon" />
+              <div>
+                <h3>Javascript</h3>
+                <p>Intermediate</p>
+              </div>
+            </article>
+            <article>
+              <img src="./assets/checkmark.png" alt="Experience icon" class="CheckmarkIcon" />
+              <div>
+                <h3>Python</h3>
+                <p>Experienced</p>
+              </div>
+            </article>
+            <article>
+              <img src="./assets/checkmark.png" alt="Experience icon" class="CheckmarkIcon" />
+              <div>
+                <h3>TypeScript</h3>
+                <p>Learning</p>
+              </div>
+            </article>
+            <article>
+              <img src="./assets/checkmark.png" alt="Experience icon" class="CheckmarkIcon" />
+              <div>
+                <h3>React</h3>
+                <p>Intermediate</p>
+              </div>
+            </article>
           </div>
-          <div class="details-container">
-            <h2 class="experience-sub-title">Backend Development</h2>
-            <div class="article-container">
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
+        </div>
+        <div class="details-container">
+          <h2 class="experience-sub-title">Backend Development</h2>
+          <div class="article-container">
+            <article>
+              <img src="./assets/checkmark.png" alt="Experience icon" class="CheckmarkIcon" />
+              <div>
+                <h3>Databricks</h3>
+                <p>Experienced</p>
+              </div>
+            </article>
+            <article>
+              <img src="./assets/checkmark.png" alt="Experience icon" class="CheckmarkIcon" />
+              <div>
+                <h3>MySQL</h3>
+                <p>Experienced</p>
+              </div>
+            </article>
+            <article>
+              <img src="./assets/checkmark.png" alt="Experience icon" class="CheckmarkIcon" />
+              <div>
+                <h3>Java</h3>
+                <p>Intermediate</p>
+              </div>
+            </article>
+            <article>
+              <img src="./assets/checkmark.png" alt="Experience icon" class="CheckmarkIcon" />
+              <div>
+                <h3>PhP</h3>
+                <p>Intermediate</p>
+              </div>
+            </article>
+            <article>
+                <img src="./assets/checkmark.png" alt="Experience icon" class="CheckmarkIcon" />
                 <div>
-                  <h3>PostgreSQL</h3>
-                  <p>Basic</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Node JS</h3>
+                  <h3>Node.JS</h3>
                   <p>Intermediate</p>
                 </div>
               </article>
               <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
+                <img src="./assets/checkmark.png" alt="Experience icon" class="CheckmarkIcon" />
                 <div>
-                  <h3>Express JS</h3>
-                  <p>Intermediate</p>
+                  <h3>Snowflake</h3>
+                  <p>Learning</p>
                 </div>
               </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Git</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-            </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
+  
 
     <!-- Footer Section -->
     <footer>
@@ -245,8 +234,8 @@
         <!-- Tagline Section -->
         <div class="footer-tagline">
           <h2>
-            Where <span class="highlight-aesthetics">aesthetics</span> &
-            <span class="highlight-functionality">functionality</span> meet
+            Always <span class="highlight-aesthetics">reaching</span> 
+            <span class="highlight-functionality">higher</span> 
           </h2>
         </div>
 
@@ -254,42 +243,39 @@
         <div class="footer-explore">
           <h3>Explore</h3>
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About Me</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
         </div>
 
         <!-- Follow Me Section -->
         <div class="footer-follow">
           <h3>Follow Me</h3>
           <ul class="social-links">
-            <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-            <li><a href="#"><i class="fab fa-dribbble"></i> Dribbble</a></li>
-            <li><a href="#"><i class="fab fa-github"></i> Github</a></li>
-            <li><a href="#"><i class="fab fa-behance"></i> Behance</a></li>
+            <li><a href="https://www.linkedin.com/in/jack-pastor-816157223/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+            <li><a href="https://github.com/AverageNftEnjoyer" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
             <li><a href="#"><i class="fab fa-discord"></i> Discord</a></li>
           </ul>
         </div>
 
         <!-- Contact and Projects Section -->
         <div class="footer-actions">
-          <div class="action-card">
-            <h3>Contact Me</h3>
-            <p>Say Hello !</p>
-            <a href="#" class="action-button"><i class="fas fa-arrow-right"></i></a>
+            <div class="action-card">
+              <h3>Contact Me</h3>
+              <a href="contact.html" class="action-button arrow-button"><i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="action-card">
+              <h3>My Projects</h3>
+              <a href="projects.html" class="action-button arrow-button"><i class="fas fa-arrow-right"></i></a>
+            </div>
           </div>
-          <div class="action-card">
-            <h3>My Projects</h3>
-            <p>Explore Projects</p>
-            <a href="projects.html" class="action-button"><i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-      </div>
     </footer>
 
-    <!-- Include the scripts -->
-    <script src="TypeText.js"></script>
+    <script src="iconfloating.js"></script>
+    <script src="scroll.js"></script>
     <script src="script.js"></script>
+    <script src="Animations.js"></script>
+
   </body>
 </html>

@@ -32,26 +32,13 @@ document.querySelectorAll('.move-on-hover').forEach((icon) => {
   });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  // Select all elements with the scroll-animation class
-  const animatedElements = document.querySelectorAll('.scroll-animation');
-
-  // Create a new IntersectionObserver instance
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        // Add the show class when the element is in view
-        entry.target.classList.add('show');
-        // Optionally, unobserve the element after it's been animated
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.1 // Adjust this threshold to control when the animation starts
+document.querySelectorAll('.nav-button').forEach((button) => {
+  button.addEventListener('mouseenter', () => {
+    button.classList.add('glow-shake');
   });
 
-  // Observe each animated element
-  animatedElements.forEach(element => {
-    observer.observe(element);
+  button.addEventListener('mouseleave', () => {
+    button.classList.remove('glow-shake');
   });
 });
+

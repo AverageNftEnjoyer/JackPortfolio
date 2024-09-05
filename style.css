@@ -13,6 +13,7 @@ body {
   background-color: #111111; /* Dark background for the entire website */
   color: #e6e6e6; /* Light grey text color */
   overflow-x: hidden;
+  position: relative; 
 }
 
 html {
@@ -34,35 +35,45 @@ a,
 
 /* NAVIGATION STYLES */
 
-nav,
-.nav-links {
+nav {
   display: flex;
   align-items: center;
-}
-
-nav {
-  justify-content: space-between;
+  justify-content: space-between; /* Separate left and right sections */
   padding: 20px 40px;
-  background-color: #111111; /* Dark black background for the header to match the entire site */
+  background-color: #111111; /* Dark background for the header */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  margin-bottom: 30px; /* Adds margin below the nav to prevent overlap */
 }
 
+.nav-left {
+  flex: 1;
+}
+
+.nav-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end; /* Align right-side buttons to the right */
+}
+
+.nav-links-left,
 .nav-links {
-  gap: 2rem;
+  display: flex;
+  gap: 1.8rem; /* Space between each nav link */
   list-style: none;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
-a {
+a.nav-button {
   color: #e6e6e6; /* Light grey text color for links */
   text-decoration: none;
+  padding: 8px 16px; /* Reduced padding for smaller button size */
+  font-size: 0.9rem; /* Smaller font size for buttons */
+  transition: all 0.3s ease; 
 }
 
-a:hover {
-  color: #00c8ff; /* Hover color for links */
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  text-decoration-color: #00c8ff; /* Hover underline color */
+a.nav-button:hover {
+  color: #ffffff; /* Hover color for links */
+  text-decoration: none; /* Removes underline on hover */
 }
 
 .logo {
@@ -83,6 +94,7 @@ section {
   border-radius: 10px; /* Rounded corners for sections */
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
   color: #e6e6e6; /* Light grey text color for section content */
+  position: relative; /* Position relative for floating icons to move inside */
 }
 
 .section-container {
@@ -100,14 +112,29 @@ section {
   align-items: center;
   height: 80vh; /* Reduced height */
   text-align: center;
-  position: relative;
-  padding: 0 3x; /* Reduced side padding */
+  position: relative; /* Relative positioning to contain absolute children */
+  overflow: hidden; /* Hide overflow of floating icons */
+  padding: 0 3px; /* Reduced side padding */
   margin-top: -20px; /* Reduced top margin */
 }
+
+/* Floating Icon Styling */
+.floating-icon {
+    width: 75px; /* Set the desired width */
+    height: 75px; /* Set the desired height */
+    position: absolute; /* Position them absolutely for floating effect */
+    object-fit: contain; /* Maintain aspect ratio */
+    z-index: 1; /* Lower z-index to ensure they stay behind other elements */
+    pointer-events: none; /* Prevent interaction with other elements */
+    top: -40%; /* Start from the middle */
+    left: -25%; /* Start from the middle */
+    transform: translate(0, 0); /* Adjust initial translation to no offset */
+  }
 
 .intro-container {
   max-width: 800px;
   margin: 0 auto;
+  position: relative; /* Ensure floating icons can move around the content */
 }
 
 .intro-text {
@@ -117,11 +144,12 @@ section {
 
 .greeting {
   font-size: 3.5rem; /* Increased font size */
-  color: #ffffff;
+  color: #e6e6e6;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 10px; /* Adjusted margin for better spacing */
+  margin-bottom: -20px; /* Adjusted to bring it closer to the following text */
+  font-weight: bold; /* Made text bold */
 }
 
 .profile-icon {
@@ -132,30 +160,29 @@ section {
 }
 
 .intro-text {
-    position: relative;
-    color: #e6e6e6; /* Default text color */
-    display: flex; /* Use flexbox to align items horizontally */
-    flex-wrap: wrap; /* Allow wrapping for smaller screens */
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Align items vertically to the center */
-    gap: 20px; /* Add space between elements */
-  }
-  
-  .intro-text h1 {
-    font-size: 5rem; /* Significantly increased font size */
-    font-weight: 700;
-    line-height: 1.2; /* Adjusted line-height for readability */
-    margin-bottom: 20px; /* Adjusted space below the heading */
-    display: inline-block; /* Ensure each line behaves as a block element */
-    text-align: center; /* Center the text */
-    white-space: nowrap; /* Prevent line breaks within the text */
-  }
-  
-  .intro-text h1 span {
-    display: inline; /* Display each span inline to spread text horizontally */
-    margin-right: 10px; /* Add some space between words */
-  }
-  
+  position: relative;
+  color: #e6e6e6; /* Default text color */
+  display: flex; /* Use flexbox to align items horizontally */
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Align items vertically to the center */
+  gap: 20px; /* Add space between elements */
+}
+
+.intro-text h1 {
+  font-size: 5rem; /* Significantly increased font size */
+  font-weight: 700;
+  line-height: 1.2; /* Adjusted line-height for readability */
+  margin-bottom: 20px; /* Adjusted space below the heading */
+  display: inline-block; /* Ensure each line behaves as a block element */
+  text-align: center; /* Center the text */
+  white-space: nowrap; /* Prevent line breaks within the text */
+}
+
+.intro-text h1 span {
+  display: inline; /* Display each span inline to spread text horizontally */
+  margin-right: 10px; /* Add some space between words */
+}
 
 .highlight-purple {
   color: #d896ff;
@@ -168,27 +195,28 @@ section {
 .highlight-blue {
   color: #00c8ff;
 }
+
 .highlight-green {
-    color: #16f1d1;
-  }
+  color: #16f1d1;
+}
 
-  .details {
-    display: flex;
-    justify-content: flex-start; /* Align content to the left */
-    align-items: center;
-    gap: 30px; /* Adjusted gap for spacing between text and icons */
-    margin-bottom: 25px; /* Adjusted margin below the details */
-    flex-wrap: wrap; /* Allow wrapping for smaller screens */
-  }
-  
-  .location {
-    font-size: 2.5rem; /* Increased font size for better visibility */
-    font-weight: bold; /* Made text bold */
-    color: #e6e6e6;
-    margin-right: 10px; /* Adjusted right margin for spacing */
-  }
-  
+.details {
+  display: flex;
+  justify-content: flex-start; /* Align content to the left */
+  align-items: center;
+  gap: 20px; /* Adjusted gap for spacing between text and icons */
+  margin-bottom: 20px; /* Adjusted margin below the details */
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+  padding-left: 0; /* Reduced padding to move content more to the left */
+}
 
+.location {
+  font-size: 2.5rem; /* Increased font size for better visibility */
+  font-weight: bold; /* Made text bold */
+  color: #e6e6e6;
+  margin-right: 60px; /* Add margin to create space between the text and icons */
+  margin-top: -40px; /* Move icons closer to the text above */
+}
 
 /* BUTTON STYLES */
 
@@ -337,18 +365,13 @@ section {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Shadow for about picture */
 }
 
-.arrow {
-  position: absolute;
-  right: -5rem;
-  bottom: 2.5rem;
-}
 
 .details-container {
   padding: 1.5rem;
   flex: 1;
   background: #1b1b1b; /* Dark background for details container */
   border-radius: 10px;
-  border: 2px solid #ff8c00; /* Orange border color */
+  border: 2px solid #d896ff; /* border color */
   text-align: center;
   color: #e6e6e6;
 }
@@ -360,7 +383,7 @@ section {
 }
 
 .experience-sub-title {
-  color: #00c8ff; /* Blue color for sub-title */
+  color: #ffffe3; /* Blue color for sub-title */
   font-weight: 600;
   font-size: 1.75rem;
   margin-bottom: 2rem;
@@ -371,6 +394,73 @@ section {
   justify-content: center;
   flex-direction: column;
 }
+.CheckmarkIcon {
+    width: 50px; /* Set the width of the icons */
+    height: 50px; /* Set the height of the icons */
+    margin-right: 1px; /* Add space between icon and text */
+    flex-shrink: 0; /* Prevent icon from shrinking */
+    transition: transform 0.3s ease, color 0.3s ease; 
+    filter: invert(0) brightness(1); /* Display the icon as black checkmark on a white background */
+}
+
+.CheckmarkIcon:hover {
+    animation: checkHover 0.6s infinite alternate; /* Apply animation on hover */
+    filter: invert(1) brightness(2); /* Display the icon as white checkmark on a black background */
+
+}
+
+@keyframes checkHover {
+    0% {
+      transform: translateY(0); /* Start at original position */
+    }
+    50% {
+      transform: translateY(-5px); /* Move up slightly */
+    }
+    100% {
+      transform: translateY(0); /* Return to original position */
+    }
+  }
+
+  
+/* Education / Experience Boxes */ 
+.Experience-container {
+    padding: 1.5rem;
+    flex: 1;
+    background: #1b1b1b; /* Dark background for details container */
+    border-radius: 10px;
+    border: 2px solid #ffcc66; /* border color */
+    text-align: center;
+    color: #e6e6e6;
+  }
+  .Education-container {
+    padding: 1.5rem;
+    flex: 1;
+    background: #1b1b1b; /* Dark background for details container */
+    border-radius: 10px;
+    border: 2px solid #16f1d1; /* border color */
+    text-align: center;
+    color: #e6e6e6;
+  }
+  .Abouticon {
+    cursor: pointer;
+    height: 60px;
+    width: 60px;
+    transition: transform 300ms ease; 
+    filter: invert(1) brightness(2); 
+
+  }  
+  .section__text__p8 {
+    text-align: center;
+    color: #d896ff; 
+    font-size: 2rem;
+    font-weight: bold; 
+  }
+  .section__text__p9 {
+    text-align: center;
+    color: #ffffe3; 
+    font-size: 2rem;
+    font-weight: bold; 
+  }
 
 .article-container {
   display: flex;
@@ -390,8 +480,13 @@ article {
 
 article .icon {
   cursor: default;
-  color: #e6e6e6; /* Light grey color for article icons */
+  color: #ff0000; /* Light grey color for article icons */
 }
+
+.text-container p {
+    font-size: 1.3em; /* Adjusts the font size to be larger */
+    line-height: 1.6; /* Increases line height for better readability */
+  }
 
 /* PROJECTS SECTION */
 
@@ -413,7 +508,7 @@ article .icon {
 
 .project-title {
   margin: 1rem;
-  color: #ffffff; /* White text color for project titles */
+  color: #e6e6e6; /* White text color for project titles */
 }
 
 .project-btn {
@@ -483,7 +578,7 @@ article .icon {
   font-size: 24px;
   font-weight: bold;
   margin: 0;
-  color: #ffffff; /* White text color */
+  color: #e6e6e6; /* White text color */
 }
 
 .highlight-aesthetics {
@@ -515,7 +610,7 @@ article .icon {
 
 .footer-explore a, .footer-follow a {
   text-decoration: none;
-  color: #e6e6e6; /* Light grey text color for links */
+  color: #e6e6e6; 
   font-size: 16px;
   display: flex;
   align-items: center;
@@ -527,57 +622,71 @@ article .icon {
 }
 
 .footer-follow .social-links a:hover {
-  color: #00c8ff; /* Hover color for social links */
+  color: #e6e6e6; /* Hover color for social links */
 }
 
 .footer-actions {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.action-card {
-  background-color: #1b1b1b; /* Slightly lighter dark background */
-  padding: 15px;
-  border-radius: 8px;
-  text-align: left;
-  position: relative;
-  color: #e6e6e6;
-}
-
-.action-card h3 {
-  margin: 0 0 10px 0;
-  font-size: 18px;
-  color: #ffffff; /* White text color */
-}
-
-.action-card p {
-  margin: 0;
-  font-size: 14px;
-  color: #e6e6e6; /* Light grey for subtitles */
-}
-
-.action-button {
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  transform: translateY(-50%);
-  background-color: transparent;
-  border: 2px solid #3fff00; /* Green border color */
-  border-radius: 50%;
-  color: #3fff00; /* Green text color */
-  padding: 8px;
-  font-size: 16px;
-  display: inline-block;
-  transition: all 0.3s ease;
-}
-
-.action-button:hover {
-  background-color: #3fff00; /* Green background on hover */
-  color: #111111; /* Dark text color on hover */
-  transform: translateY(-50%) scale(1.1); /* Scale effect on hover */
-}
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Adds space between the action cards */
+    align-items: flex-start; /* Align items to the start of the container */
+  }
+  
+  .action-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 200px; /* Limits the width of the action card */
+    border-bottom: 1px solid #333; /* Adds a bottom border */
+    padding-bottom: 10px; /* Adds some padding to the bottom */
+    margin-bottom: 10px; /* Adds space below each card */
+    gap: 20px;
+  }
+  
+  .action-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px; /* Width of the circular button */
+    height: 35px; /* Height of the circular button */
+    border-radius: 50%; /* Makes the button circular */
+    background-color: transparent; /* Default background color */
+    border: 1px solid #333; /* Border color */
+    text-decoration: none; /* Removes underline from text */
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+  }
+  
+  .action-button i {
+    color: #ffffff; /* Default icon color */
+    transition: color 0.3s ease; /* Smooth transition for color */
+  }
+  
+  .action-button:hover {
+    background-color: green; /* Changes background color to green on hover */
+    transform: rotate(15deg); /* Rotates the button 15 degrees on hover */
+  }
+  
+  .action-button:hover i {
+    color: #000000; /* Changes icon color to black on hover */
+  }
+  
+  h3, p {
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+    color: #ffffff; /* Text color */
+  }
+  
+  h3 {
+    font-size: 1.2em; /* Font size for h3 */
+    font-weight: bold; /* Bold text for h3 */
+  }
+  
+  p {
+    font-size: 0.9em; /* Font size for paragraph */
+    color: #cccccc; /* Lighter color for paragraph text */
+  }
+  
 
 /* MEDIA QUERIES FOR RESPONSIVENESS */
 @media (max-width: 768px) {
@@ -618,6 +727,8 @@ article .icon {
   cursor: pointer;
   overflow: hidden;
   transition: color 0.3s ease;
+  outline: none; /* Remove default focus outline */
+  text-decoration: none; /* Remove underline from focus */
 }
 
 .nav-button::before {
@@ -627,7 +738,7 @@ article .icon {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #20a4fc;
+  background-color: transparent; /* Changed from blue to transparent */
   z-index: 0;
   transition: transform 0.4s ease;
   transform: scaleX(0);
@@ -639,7 +750,7 @@ article .icon {
 }
 
 .nav-button:hover {
-  color: white; /* Change text color to white on hover */
+  color: white; /* Text color remains white on hover */
 }
 
 .nav-button span {
@@ -649,27 +760,92 @@ article .icon {
   transition: color 0.4s ease; /* Smooth transition for text color */
 }
 
+/* Glow and Shake Animation for Hover */
+.glow-shake {
+  animation: glow 1.5s infinite ease-in-out, shake 0.3s ease-in-out;
+}
+
 /* Resume LinkedIn Github Icons */
 .icon {
-    cursor: pointer;
-    height: 60px;
-    width: 60px;
-    transition: transform 300ms ease; 
-  }  
-  
-  .icon:hover {
-    transform: translateX(10px) translateY(-10px); 
+  cursor: pointer;
+  height: 60px;
+  width: 60px;
+  transition: transform 300ms ease; 
+  margin-left: -50px; /* Moved icons closer to the text */
+  margin-top: -40px; 
+}  
+
+.icon:hover {
+  transform: translateX(10px) translateY(-10px); 
+}
+
+.github-icon {
+  height: 80px;
+  width: 100px; 
+  transition: transform 300ms ease; 
+  margin-left: -10px; /* Moved icons closer to the text */
+  margin-top: -40px; 
+}
+
+.resume-icon {
+  height: 60px;
+  transition: transform 300ms ease; 
+  margin-left: -10px; /* Moved icons closer to the text */
+  margin-top: -40px; 
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px #00c8ff, 0 0 10px #00c8ff, 0 0 15px #00c8ff, 0 0 20px #00c8ff;
   }
-  
-/* Initial state for all animated elements */
-.scroll-animation {
+  50% {
+    box-shadow: 0 0 10px #00c8ff, 0 0 15px #00c8ff, 0 0 20px #00c8ff, 0 0 35px #00c8ff;
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+.glow-shake {
+  animation: glow 1.5s infinite ease-in-out, shake 0.3s ease-in-out;
+}
+
+/* Responsive Design: Adjust icon size on smaller screens */
+@media (max-width: 768px) {
+  .icon {
+    width: 40px;  /* Adjust width for smaller screens */
+    height: 40px; /* Adjust height for smaller screens */
+  }
+
+  .floating-icon {
+    width: 40px;  /* Adjust width for floating icons on smaller screens */
+    height: 40px; /* Adjust height for floating icons on smaller screens */
+  }
+}
+
+/* Scrolling animations */
+.fade-in-up {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
   }
   
-  /* Animation when element is in view */
-  .scroll-animation.show {
+  .fade-in-down {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  .fade-in-visible {
     opacity: 1;
     transform: translateY(0);
   }
