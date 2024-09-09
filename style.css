@@ -153,11 +153,14 @@ section {
 }
 
 .profile-icon {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  margin-right: 15px;
+  width: 120px;  /* Adjust size here */
+  height: 120px; /* Adjust size here */
+  margin-right: 15px; /* Keeps the spacing to the right */
+  border-radius: 50%; /* Ensures the icon remains circular */
+  transition: box-shadow 0.3s ease-in-out; /* Smooth transition for the glow effect */
 }
+
+
 
 .intro-text {
   position: relative;

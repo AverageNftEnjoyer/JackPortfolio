@@ -42,3 +42,22 @@ document.querySelectorAll('.nav-button').forEach((button) => {
   });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  const message = "Any inquiries or questions, please contact me below!";
+  const messageElement = document.getElementById("typed-message");
+  let index = 0;
+
+  function typeMessage() {
+    if (index < message.length) {
+      messageElement.innerHTML += message.charAt(index);
+      index++;
+      setTimeout(typeMessage, 50); // Adjust the typing speed here
+    } else {
+      messageElement.style.fontWeight = "bold"; // Bold the text once typing is complete
+      messageElement.style.textDecoration = "underline"; // Underline the text once typing is complete
+    }
+  }
+
+  // Start typing effect once the page has loaded
+  typeMessage();
+});

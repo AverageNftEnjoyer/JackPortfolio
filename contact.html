@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Me - Jack Pastor Portfolio</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="manifest" href="assets/site.webmanifest">   
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="contact.css" />
     <link
@@ -13,8 +17,6 @@
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"  />
-
-
   </head>
   <body>
     <!-- Navigation Section -->
@@ -55,7 +57,7 @@
       <!-- Success Message and Animation Placeholder -->
       <div id="success-animation" class="success-message hidden">
         <div class="checkmark-container">
-          <i class="fas fa-check-circle"></i> <!-- Checkmark icon from FontAwesome -->
+          <i class="fas fa-check-circle"></i> 
         </div>
         <p id="success-message-text">Your message has been sent successfully!</p>
       </div>
@@ -142,41 +144,16 @@
     </footer>
     
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-
     <script type="text/javascript"
     src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-</script>
-<script type="text/javascript">
-(function(){
-  emailjs.init({
-    publicKey: "7e1nwlrEIWvVKlJbM",
-  });
-})();
-</script>
-
-  <script type="text/javascript">
-  document.addEventListener("DOMContentLoaded", function () {
-    const message = "Any inquiries or questions, please contact me below!";
-    const messageElement = document.getElementById("typed-message");
-    let index = 0;
-
-    function typeMessage() {
-      if (index < message.length) {
-        messageElement.innerHTML += message.charAt(index);
-        index++;
-        setTimeout(typeMessage, 50); // Adjust the typing speed here
-      } else {
-        messageElement.style.fontWeight = "bold"; // Bold the text once typing is complete
-        messageElement.style.textDecoration = "underline"; // Underline the text once typing is complete
-      }
-    }
-
-    // Start typing effect once the page has loaded
-    typeMessage();
-  });
-</script>
-
-
+    </script>
+    <script type="text/javascript">
+    (function(){
+      emailjs.init({
+      publicKey: "7e1nwlrEIWvVKlJbM",
+    });
+  })();
+    </script>
     <script src="Contact.js"></script>
     <script src="script.js"></script>
     <script src="Animations.js"></script>

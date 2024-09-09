@@ -57,8 +57,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
             icon.dataset.posX = posX;
             icon.dataset.posY = posY;
-            icon.dataset.velX = getRandomInRange(-2, 1.75) || 1; 
-            icon.dataset.velY = getRandomInRange(-2, 1.75) || 1;
+
+            // Increased range for faster speeds
+            icon.dataset.velX = getRandomInRange(-4, 3.5) || 1; // Velocity in X direction
+            icon.dataset.velY = getRandomInRange(-4, 3.5) || 1; // Velocity in Y direction
 
             // Apply initial position
             icon.style.transform = `translate(${posX - containerRect.left}px, ${posY - containerRect.top}px)`;
