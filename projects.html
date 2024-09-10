@@ -9,7 +9,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
     <link rel="manifest" href="assets/site.webmanifest">   
-      <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="projects.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link
       rel="stylesheet"
@@ -21,16 +22,19 @@
   </head>
   <body>
     <nav id="desktop-nav">
-      <div class="logo">Jack Pastor</div>
-      <div>
-        <ul class="nav-links">
+      <div class="nav-left">
+        <ul class="nav-links-left">
           <li><a href="index.html" class="nav-button">Home</a></li>
-          <li><a href="index.html#about" class="nav-button">About</a></li>
-          <li><a href="#projects" class="nav-button">Projects</a></li>
+        </ul>
+      </div>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="#about" class="nav-button">About</a></li>
+          <li><a href="projects.html" class="nav-button">Projects</a></li>
           <li><a href="contact.html" class="nav-button">Contact Me</a></li>
         </ul>
       </div>
-    </nav>
+    </nav>    
 
     <!-- Projects Section -->
     <section id="projects">
@@ -38,77 +42,63 @@
       <h1 class="title">Projects</h1>
       <div class="experience-details-container">
         <div class="about-containers">
-          <div class="details-container color-container">
+          
+          <!-- First Project -->
+          <div class="details-container color-container project-one">
             <div class="article-container">
-              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg" />
+              <img src="/assets/Logo.webp" alt="Portfolio Site" class="project-img" />
             </div>
-            <h2 class="experience-sub-title project-title">Project One</h2>
+            <h2 class="experience-sub-title project-title">Portfolio Site</h2>
             <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Live Demo
-              </button>
+              <a href="index.html" target="_blank" class="btn btn-color-2 project-btn">
+                <i class="fas fa-external-link-alt"></i> Link
+              </a>
+              <!-- Button linking to GitHub -->
+              <a href="https://github.com/AverageNftEnjoyer/JackPortfolio" target="_blank" class="btn btn-color-2 project-btn">
+                <i class="fab fa-github"></i> GitHub
+              </a>
             </div>
           </div>
-          <div class="details-container color-container">
+    
+          <!-- Second Project -->
+          <div class="details-container color-container project-two">
             <div class="article-container">
-              <img
-                src="./assets/project-2.png"
-                alt="Project 2"
-                class="project-img"
-              />
+              <video class="project-video" autoplay muted loop>
+                <source src="./assets/IFCVid.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </div>
-            <h2 class="experience-sub-title project-title">Project Two</h2>
+            <h2 class="experience-sub-title project-title">Penn State IFC</h2>
             <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Live Demo
-              </button>
+              <a href="https://www.pennstateifc.org/" target="_blank" class="btn btn-color-2 project-btn">
+                <i class="fas fa-external-link-alt"></i> Link
+              </a>
+              <a href="https://github.com/AverageNftEnjoyer/JackPortfolio" target="_blank" class="btn btn-color-2 project-btn">
+                <i class="fab fa-github"></i> GitHub
+              </a>
             </div>
           </div>
-          <div class="details-container color-container">
+    
+          <!-- Third Project -->
+          <div class="details-container color-container project-three">
             <div class="article-container">
-              <img
-                src="./assets/project-3.png"
-                alt="Project 3"
-                class="project-img"
-              />
+              <img src="./assets/Project3.gif" alt="Project 3" class="project-gif" />
             </div>
-            <h2 class="experience-sub-title project-title">Project Three</h2>
+            <h2 class="experience-sub-title project-title">Project Three Coming Soon</h2>
             <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
-              >
-                Live Demo
-              </button>
+              <a href="https://live-demo-link-three.com" target="_blank" class="btn btn-color-2 project-btn">
+                <i class="fas fa-external-link-alt"></i> Link
+              </a>
+              <a href="https://github.com/AverageNftEnjoyer/JackPortfolio" target="_blank" class="btn btn-color-2 project-btn">
+                <i class="fab fa-github"></i> GitHub
+              </a>
             </div>
           </div>
+    
         </div>
       </div>
     </section>
+    
 
     <footer>
       <div class="footer-container">
@@ -127,7 +117,7 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="#about">About Me</a></li>
             <li><a href="contact.html">Contact</a></li>
-        </ul>
+          </ul>
         </div>
 
         <!-- Follow Me Section -->
@@ -142,17 +132,17 @@
 
         <!-- Contact and Projects Section -->
         <div class="footer-actions">
-            <div class="action-card">
-              <h3>Contact Me</h3>
-              <a href="contact.html" class="action-button arrow-button"><i class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="action-card">
-              <h3>My Projects</h3>
-              <a href="projects.html" class="action-button arrow-button"><i class="fas fa-arrow-right"></i></a>
-            </div>
+          <div class="action-card">
+            <h3>Contact Me</h3>
+            <a href="contact.html" class="action-button arrow-button"><i class="fas fa-arrow-right"></i></a>
           </div>
+          <div class="action-card">
+            <h3>My Projects</h3>
+            <a href="projects.html" class="action-button arrow-button"><i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
     </footer>
-
 
     <script src="script.js"></script>
     <script src="Animations.js"></script>

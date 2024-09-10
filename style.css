@@ -110,7 +110,7 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh; /* Reduced height */
+  height: 90vh; /* Reduced height */
   text-align: center;
   position: relative; /* Relative positioning to contain absolute children */
   overflow: hidden; /* Hide overflow of floating icons */
@@ -156,7 +156,7 @@ section {
   width: 120px;  /* Adjust size here */
   height: 120px; /* Adjust size here */
   margin-right: 15px; /* Keeps the spacing to the right */
-  border-radius: 50%; /* Ensures the icon remains circular */
+  border-radius: 50%; 
   transition: box-shadow 0.3s ease-in-out; /* Smooth transition for the glow effect */
 }
 
@@ -491,33 +491,6 @@ article .icon {
     line-height: 1.6; /* Increases line height for better readability */
   }
 
-/* PROJECTS SECTION */
-
-#projects {
-  position: relative;
-}
-
-.color-container {
-  border-color: #ff8c00; /* Orange border color for projects */
-  background: #1b1b1b; /* Dark background for projects */
-}
-
-.project-img {
-  border-radius: 10px;
-  width: 90%;
-  height: 90%;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Shadow for project images */
-}
-
-.project-title {
-  margin: 1rem;
-  color: #e6e6e6; /* White text color for project titles */
-}
-
-.project-btn {
-  color: #e6e6e6; /* Light grey text color for project buttons */
-  border-color: #ff8c00; /* Orange border color for project buttons */
-}
 
 /* CONTACT SECTION */
 
@@ -666,7 +639,7 @@ article .icon {
   }
   
   .action-button:hover {
-    background-color: green; /* Changes background color to green on hover */
+    background-color: #16f1d1; /* Changes background color to green on hover */
     transform: rotate(15deg); /* Rotates the button 15 degrees on hover */
   }
   
@@ -753,7 +726,7 @@ article .icon {
 }
 
 .nav-button:hover {
-  color: white; /* Text color remains white on hover */
+  color: white; 
 }
 
 .nav-button span {

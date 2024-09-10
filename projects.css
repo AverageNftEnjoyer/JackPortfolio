@@ -1,0 +1,84 @@
+
+#projects {
+    position: relative;
+  }
+  
+  .color-container {
+    border-color: #ff8c00; /* Orange border color for projects */
+    background: #1b1b1b; /* Dark background for projects */
+  }
+  
+  /* Style for the project images */
+  .project-img{
+    border-radius: 10px;
+    width: 90%; /* Same width for images and video */
+    height: 90%; /* Same height for images and video */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Same shadow for uniform look */
+  }
+  
+  .project-video{
+    border-radius: 10px;
+    width: 80%; /* Same width for images and video */
+    height: 100%; /* Same height for images and video */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Same shadow for uniform look */
+    object-fit: cover; /* Ensure the video is cropped to fit the container */
+  }
+  .project-gif {
+    border-radius: 10px;
+    width: 90%; /* Same width as images and video */
+    height: 90%; /* Same height as images and video */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Same shadow for uniform look */
+    object-fit: cover; /* Ensure the gif is cropped to fit the container */
+}
+  
+  
+  .project-title {
+    margin: 1rem;
+    color: #e6e6e6; /* White text color for project titles */
+  }
+  
+  .project-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    text-decoration: none; /* Remove underline */
+    color: #e6e6e6; /* Light grey text color */
+    border: 2px solid #ffffff; /* Orange border color */
+    background-color: transparent;
+    border-radius: 5px; /* Rounded corners */
+    transition: all 0.3s ease; /* Smooth transitions */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Space between icon and text */
+  }
+  
+  .project-btn:hover {
+    background-color: #ffffff; /* Orange background on hover */
+    color: #111111; /* Dark text color on hover */
+    transform: scale(1.05); /* Slight scale on hover */
+  }
+  
+  .btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between the two buttons */
+    margin-top: 10px; /* Margin above the buttons */
+  }
+  
+  .project-btn i {
+    margin-right: 5px; /* Space between icon and text */
+  }
+
+  .project-one {
+    border-color: #ff8c00; /* Orange for Project One */
+  }
+  
+  .project-two {
+    border-color: #00c8ff; /* Blue for Project Two */
+  }
+  
+  .project-three {
+    border-color: #d896ff; /* Purple for Project Three */
+  }
+  

@@ -3,9 +3,15 @@ document.addEventListener('DOMContentLoaded', function () {
     const speed = 80; // Typing speed
     const typingElement = document.getElementById('typing-text');
     const floatingIcons = document.querySelectorAll('.floating-icon');
-    const textElements = document.querySelectorAll('.intro-text h1, .intro-text .greeting, .details');
+    const textElements = document.querySelectorAll('.intro-text h1, .intro-text .greeting, .details, .move-on-hover');
     const container = document.getElementById('main-content');
     const containerRect = container.getBoundingClientRect();
+    
+    // Select the details section to apply the larger barrier
+    const detailsSection = document.querySelector('.details');
+    const detailsRect = detailsSection.getBoundingClientRect();
+    const exclusionMargin = 300; // Increase the buffer size around the details section
+    
 
     let index = 0;
 
@@ -13,54 +19,54 @@ document.addEventListener('DOMContentLoaded', function () {
         return Math.random() * (max - min) + min;
     }
 
-    const spawnMargin = 140; // Margin from the edges to prevent icons from being partially outside the screen
     const iconSize = 75; // Assuming each icon has a consistent width and height
 
-    const spawnPoints = [
-        { x: spawnMargin, y: spawnMargin }, // Top left corner
-        { x: containerRect.width - iconSize - spawnMargin + 100, y: spawnMargin }, // Top right corner
-        { x: (containerRect.width - iconSize) / 2, y: spawnMargin }, // Middle 
-        { x: spawnMargin, y: containerRect.height / 4 }, // New spawn point at top left of the text
-        { x: containerRect.width - iconSize - spawnMargin + 100, y: containerRect.height / 4 } // New spawn point at top right of the text
-    ];
-
-    function isCollidingWithText(x, y, iconWidth, iconHeight) {
-        for (const text of textElements) {
-            const textRect = text.getBoundingClientRect();
+    // Check if the icon would collide with any text or specific elements (like LinkedIn, GitHub, resume icons)
+    function isCollidingWithElements(x, y, iconWidth, iconHeight) {
+        for (const element of textElements) {
+            const elementRect = element.getBoundingClientRect();
             if (
-                x < textRect.right &&
-                x + iconWidth > textRect.left &&
-                y < textRect.bottom &&
-                y + iconHeight > textRect.top
+                x < elementRect.right &&
+                x + iconWidth > elementRect.left &&
+                y < elementRect.bottom &&
+                y + iconHeight > elementRect.top
             ) {
                 return true; 
             }
         }
+
+        // Ensure that the icons don't spawn within the `.details` section + extra buffer
+        if (
+            x < detailsRect.right + exclusionMargin &&
+            x + iconWidth > detailsRect.left - exclusionMargin &&
+            y < detailsRect.bottom + exclusionMargin &&
+            y + iconHeight > detailsRect.top - exclusionMargin
+        ) {
+            return true; 
+        }
+
         return false; 
     }
 
     // Initialize positions and velocities for floating icons
     function initializeIcons() {
-        floatingIcons.forEach((icon, index) => {
+        floatingIcons.forEach((icon) => {
             icon.style.display = 'block'; // Show icons after initial setup
 
-            const spawnPoint = spawnPoints[index % spawnPoints.length];
+            let posX, posY;
 
-            let posX = spawnPoint.x + window.scrollX; 
-            let posY = spawnPoint.y + window.scrollY;
-
-            // Ensure no initial overlap with text
-            while (isCollidingWithText(posX, posY, icon.offsetWidth, icon.offsetHeight)) {
-                posX = getRandomInRange(containerRect.left + spawnMargin, containerRect.right - iconSize - spawnMargin);
-                posY = getRandomInRange(containerRect.top + spawnMargin, containerRect.bottom - iconSize - spawnMargin);
-            }
+            // Find a spawn point that doesn't collide with other elements, including `.details`
+            do {
+                posX = getRandomInRange(containerRect.left, containerRect.right - iconSize);
+                posY = getRandomInRange(containerRect.top, containerRect.bottom - iconSize);
+            } while (isCollidingWithElements(posX, posY, icon.offsetWidth, icon.offsetHeight));
 
             icon.dataset.posX = posX;
             icon.dataset.posY = posY;
 
-            // Increased range for faster speeds
-            icon.dataset.velX = getRandomInRange(-4, 3.5) || 1; // Velocity in X direction
-            icon.dataset.velY = getRandomInRange(-4, 3.5) || 1; // Velocity in Y direction
+            // Set initial velocity
+            icon.dataset.velX = getRandomInRange(-5, 3.5) || 1; // Velocity in X direction
+            icon.dataset.velY = getRandomInRange(-5, 3.5) || 1; // Velocity in Y direction
 
             // Apply initial position
             icon.style.transform = `translate(${posX - containerRect.left}px, ${posY - containerRect.top}px)`;
@@ -84,22 +90,22 @@ document.addEventListener('DOMContentLoaded', function () {
             posY += velY;
 
             // Check for collision with text elements
-            textElements.forEach((text) => {
-                const textRect = text.getBoundingClientRect();
+            textElements.forEach((element) => {
+                const elementRect = element.getBoundingClientRect();
                 const iconRect = icon.getBoundingClientRect();
 
                 if (
-                    iconRect.left < textRect.right &&
-                    iconRect.right > textRect.left &&
-                    iconRect.top < textRect.bottom &&
-                    iconRect.bottom > textRect.top
+                    iconRect.left < elementRect.right &&
+                    iconRect.right > elementRect.left &&
+                    iconRect.top < elementRect.bottom &&
+                    iconRect.bottom > elementRect.top
                 ) {
                     // Collision detected, reverse direction and apply an offset
-                    if (iconRect.left < textRect.right && iconRect.right > textRect.left) {
+                    if (iconRect.left < elementRect.right && iconRect.right > elementRect.left) {
                         velX = -velX; // Reverse X velocity
                         posX += velX * 2; // Move the icon away from the collision area
                     }
-                    if (iconRect.top < textRect.bottom && iconRect.bottom > textRect.top) {
+                    if (iconRect.top < elementRect.bottom && iconRect.bottom > elementRect.top) {
                         velY = -velY; // Reverse Y velocity
                         posY += velY * 2; // Move the icon away from the collision area
                     }
@@ -108,10 +114,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
             // Reverse direction when hitting the container boundaries
             if (posX <= containerRect.left || posX >= containerRect.right - icon.offsetWidth) {
-                velX = -velX; // Ensure it doesn't stop moving
+                velX = -velX;
             }
             if (posY <= containerRect.top || posY >= containerRect.bottom - icon.offsetHeight) {
-                velY = -velY; // Ensure it doesn't stop moving
+                velY = -velY;
             }
 
             // Apply updated positions and velocities
@@ -122,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function () {
             icon.dataset.velY = velY;
         });
 
-        // Request the next frame
+        // Request the next frame for the animation
         requestAnimationFrame(animateIcons);
     }
 
