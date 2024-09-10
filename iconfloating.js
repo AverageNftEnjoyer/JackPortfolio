@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const detailsSection = document.querySelector('.details');
     const detailsRect = detailsSection.getBoundingClientRect();
     const exclusionMargin = 300; // Increase the buffer size around the details section
+    const textBuffer = 100; // Additional buffer space around text elements to prevent collisions
     
-
     let index = 0;
 
     function getRandomInRange(min, max) {
@@ -26,10 +26,10 @@ document.addEventListener('DOMContentLoaded', function () {
         for (const element of textElements) {
             const elementRect = element.getBoundingClientRect();
             if (
-                x < elementRect.right &&
-                x + iconWidth > elementRect.left &&
-                y < elementRect.bottom &&
-                y + iconHeight > elementRect.top
+                x < elementRect.right + textBuffer &&
+                x + iconWidth > elementRect.left - textBuffer &&
+                y < elementRect.bottom + textBuffer &&
+                y + iconHeight > elementRect.top - textBuffer
             ) {
                 return true; 
             }
@@ -50,16 +50,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Initialize positions and velocities for floating icons
     function initializeIcons() {
-        floatingIcons.forEach((icon) => {
+        const halfLength = Math.floor(floatingIcons.length / 2); // Divide icons in two halves
+
+        floatingIcons.forEach((icon, index) => {
             icon.style.display = 'block'; // Show icons after initial setup
 
             let posX, posY;
 
-            // Find a spawn point that doesn't collide with other elements, including `.details`
-            do {
-                posX = getRandomInRange(containerRect.left, containerRect.right - iconSize);
-                posY = getRandomInRange(containerRect.top, containerRect.bottom - iconSize);
-            } while (isCollidingWithElements(posX, posY, icon.offsetWidth, icon.offsetHeight));
+            // First half of icons will spawn above the text elements
+            if (index < halfLength) {
+                do {
+                    posX = getRandomInRange(containerRect.left, containerRect.right - iconSize);
+                    posY = getRandomInRange(containerRect.top, detailsRect.top - iconSize); // Above the text
+                } while (isCollidingWithElements(posX, posY, icon.offsetWidth, icon.offsetHeight));
+
+            // Second half of icons will spawn below the details section
+            } else {
+                do {
+                    posX = getRandomInRange(containerRect.left, containerRect.right - iconSize);
+                    posY = getRandomInRange(detailsRect.bottom, containerRect.bottom - iconSize); // Below the text
+                } while (isCollidingWithElements(posX, posY, icon.offsetWidth, icon.offsetHeight));
+            }
 
             icon.dataset.posX = posX;
             icon.dataset.posY = posY;

@@ -1,3 +1,9 @@
+require('dotenv').config();
+
+const emailJSKey = process.env.EMAILJS_PUBLIC_KEY;
+emailjs.init(emailJSKey);
+
+
 window.onload = function() {
     const successAnimation = document.getElementById("success-animation");
     successAnimation.classList.add("hidden"); 

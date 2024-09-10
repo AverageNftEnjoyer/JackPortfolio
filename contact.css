@@ -8,8 +8,8 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #111111; /* Dark background for the entire website */
-  color: #e6e6e6; /* Light grey text color */
+  background-color: #111111; /* Background for site */
+  color: #e6e6e6; /* Base Text Color */
   overflow-x: hidden;
   position: relative; 
 }
@@ -31,7 +31,7 @@ a,
   flex-direction: column;
   align-items: center;
   padding: 60px 20px;
-  background-color: #1b1b1b; /* Slightly different dark background for contrast */
+  background-color: #1b1b1b; /* Background for Contact */
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   margin: 2rem auto;
@@ -41,7 +41,7 @@ a,
 /* Heading Styles */
 .contact-heading {
   font-size: 3rem;
-  color: #d896ff; /* Purple highlight for headings */
+  color: #d896ff; /* headings */
   margin-bottom: 20px;
   text-align: center;
   animation: fadeIn 2s ease-out;
@@ -49,7 +49,7 @@ a,
 
 .contact-subheading {
   font-size: 1.5rem;
-  color: #ffffff; /* Blue color for subheadings */
+  color: #ffffff; /* subheadings */
   margin-bottom: 40px;
   text-align: center;
 }
@@ -65,7 +65,7 @@ a,
 .contact-form input,
 .contact-form textarea {
   background-color: #111111;
-  border: 2px solid #d896ff; /* Purple border for inputs */
+  border: 2px solid #d896ff; /* Border for inputs */
   padding: 15px;
   border-radius: 8px;
   color: #ffffff;
@@ -75,18 +75,18 @@ a,
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border-color: #00c8ff; /* Blue border on focus */
+  border-color: #00c8ff; 
   outline: none;
 }
 
 .contact-form textarea {
-  resize: none; /* Disable resizing for consistent layout */
-  height: 150px; /* Set a height for the textarea */
+  resize: none; 
+  height: 150px; 
 }
 
 .contact-form button {
   background-color: transparent;
-  border: 2px solid #16f1d1; /* Blue border for the submit button */
+  border: 2px solid #16f1d1; /* border submit button */
   color: #ffffff;
   padding: 15px;
   border-radius: 30px;
@@ -96,9 +96,9 @@ a,
 }
 
 .contact-form button:hover {
-  background-color: #16f1d1; /* Blue background on hover */
-  color: #111111; /* Dark text color on hover */
-  transform: scale(1.05); /* Slight scale up on hover */
+  background-color: #16f1d1; /* background on hover */
+  color: #111111; 
+  transform: scale(1.05); 
 }
 
 /* Contact Information Section */
@@ -113,7 +113,7 @@ a,
 
 .contact-info-item {
   background-color: #111111;
-  border: 2px solid #ffcc66; /* Yellow border for info sections */
+  border: 2px solid #ffcc66; /* info sections */
   padding: 20px;
   border-radius: 10px;
   flex: 1;
@@ -131,12 +131,12 @@ a,
 
 .contact-info-item p {
   font-size: 1rem;
-  color: #cccccc; /* Lighter grey text for descriptions */
+  color: #cccccc; /* for descriptions */
 }
 
 .contact-info-item i {
   font-size: 2rem;
-  color: #ffcc66; /* Yellow color for icons */
+  color: #ffcc66; /* color for icons */
   margin-bottom: 10px;
 }
 
@@ -152,12 +152,12 @@ a,
   height: 40px;
   width: 40px;
   transition: transform 0.3s ease, color 0.3s ease;
-  color: #e6e6e6; /* Light grey color for social icons */
+  color: #e6e6e6; 
 }
 
 .contact-socials .icon:hover {
   transform: scale(1.2);
-  color: #00c8ff; /* Blue color on hover */
+  color: #00c8ff; /* color on hover */
 }
 
 /* Animation */
@@ -192,10 +192,8 @@ a,
 }
 
 .floating-icon {
-  display: none; /* Hide the floating icons */
+  display: none; 
 }
-
-/* Ensure the success message is hidden on page load */
 .hidden {
   display: none;
 }
@@ -207,15 +205,15 @@ a,
   align-items: center;
   justify-content: center;
   margin-top: 20px;
-  font-size: 1.5rem; /* Increase font size for success message */
-  font-weight: bold; /* Make the message bold */
-  color: #ffffff; /* Green color for success */
+  font-size: 1.5rem; 
+  font-weight: bold; 
+  color: #ffffff; 
   text-align: center;
 }
 
 .checkmark-container {
   font-size: 5rem;
-  color: #27ae60; /* Green checkmark */
+  color: #16f1d1; 
   margin-bottom: 10px;
 }
 
@@ -229,7 +227,6 @@ a,
   }
 }
 
-/* Pop-in animation for the checkmark */
 @keyframes popIn {
   from {
     transform: scale(0);
@@ -239,7 +236,6 @@ a,
   }
 }
 
-/* After successful submission */
 .success-message.show {
   display: flex;
   color: #ffffff; 
@@ -249,5 +245,5 @@ a,
 
 .checkmark-container.show {
   transform: scale(1);
-  animation: popIn 0.6s forwards ease-in-out 0.3s; /* Pop-in with delay */
+  animation: popIn 0.6s forwards ease-in-out 0.3s; 
 }

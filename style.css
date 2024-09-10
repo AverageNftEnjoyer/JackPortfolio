@@ -544,6 +544,11 @@ article .icon {
   background-color: #111111; /* Dark background for footer */
   padding: 40px;
   color: #e6e6e6; /* Light grey text color */
+  
+}
+.footer-container a:hover {
+  color: #00c8ff; /* Color change on hover */
+  text-shadow: 0 0 5px #00c8ff, 0 0 10px #00c8ff; /* Glow effect */
 }
 
 .footer-tagline {
@@ -580,7 +585,7 @@ article .icon {
   padding: 0;
 }
 
-.footer-explore li, .footer-follow li {
+.footer-explore ul li, .footer-follow ul li {
   margin-bottom: 10px;
 }
 
@@ -598,7 +603,7 @@ article .icon {
 }
 
 .footer-follow .social-links a:hover {
-  color: #e6e6e6; /* Hover color for social links */
+  color: #16f1d1; /* Hover color for social links, updated to green */
 }
 
 .footer-actions {
@@ -606,9 +611,9 @@ article .icon {
     flex-direction: column;
     gap: 20px; /* Adds space between the action cards */
     align-items: flex-start; /* Align items to the start of the container */
-  }
-  
-  .action-card {
+}
+
+.action-card {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -618,9 +623,9 @@ article .icon {
     padding-bottom: 10px; /* Adds some padding to the bottom */
     margin-bottom: 10px; /* Adds space below each card */
     gap: 20px;
-  }
-  
-  .action-button {
+}
+
+.action-button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -630,22 +635,22 @@ article .icon {
     background-color: transparent; /* Default background color */
     border: 1px solid #333; /* Border color */
     text-decoration: none; /* Removes underline from text */
-    transition: background-color 0.3s ease, transform 0.3s ease; 
-  }
-  
-  .action-button i {
+    transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+}
+
+.action-button i {
     color: #ffffff; /* Default icon color */
     transition: color 0.3s ease; /* Smooth transition for color */
-  }
-  
-  .action-button:hover {
-    background-color: #16f1d1; /* Changes background color to green on hover */
+}
+
+.action-button:hover {
+    background-color: #16f1d1; /* Changes background color to the green used in your project */
     transform: rotate(15deg); /* Rotates the button 15 degrees on hover */
-  }
-  
-  .action-button:hover i {
+}
+
+.action-button:hover i {
     color: #000000; /* Changes icon color to black on hover */
-  }
+}
   
   h3, p {
     margin: 0; /* Removes default margin */

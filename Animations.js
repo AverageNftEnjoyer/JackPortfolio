@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("fade-in-visible");
-        observer.unobserve(entry.target); // Stop observing once the animation is done
+        observer.unobserve(entry.target); 
       }
     });
   }, options);
@@ -38,9 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   arrowButtons.forEach(button => {
     button.addEventListener('mouseover', () => {
-      // Generate a random direction: either 1 (for 15deg) or -1 (for -15deg)
       const direction = Math.random() < 0.5 ? -1 : 1;
-      // Set the direction as a CSS variable on the button
       button.style.setProperty('--direction', direction);
     });
   });
