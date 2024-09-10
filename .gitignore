@@ -1,4 +1,11 @@
-# .gitignore
+# Ignore node_modules
 node_modules/
+
+# Ignore contact.html file
 contact.html
+
+# Ignore assets folder 
+assets/
+
+# Ignore environment files
 .env
