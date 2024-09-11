@@ -401,5 +401,5 @@ a.nav-button {
 
 a.nav-button:hover {
   color: #ffffff;
-  background-color: #00c8ff;
+  text-decoration: none; 
 }
