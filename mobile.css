@@ -363,3 +363,43 @@
   }
 
 }
+/* Mobile Nav Styles */
+#mobile-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #111111;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 999;
+}
+
+.nav-left, .nav-right {
+  flex: 1;
+}
+
+.nav-links-left, .nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;  /* Adjust the spacing for mobile */
+  list-style: none;
+}
+
+.nav-links {
+  justify-content: flex-end;
+}
+
+a.nav-button {
+  color: #e6e6e6;
+  text-decoration: none;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+a.nav-button:hover {
+  color: #ffffff;
+  background-color: #00c8ff;
+}
