@@ -36,7 +36,7 @@
     background-color: #111111;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin-bottom: 30px;
-    position: fixed;
+    position: relative;
     top: 0;
     width: 100%;
     z-index: 999;
