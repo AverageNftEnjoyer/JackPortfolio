@@ -37,9 +37,7 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin-bottom: 30px;
     position: relative;
-    top: 0;
     width: 100%;
-    z-index: 999;
   }
 
   .nav-left, .nav-right {
@@ -80,7 +78,7 @@
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     color: #e6e6e6;
-    margin-top: 90px; /* Ensure content doesn't overlap the fixed header */
+    margin-top: 90px;
   }
 
   #main-content {
@@ -100,7 +98,7 @@
 
   .greeting {
     font-size: 2.5rem;
-    color: #d896ff; /* Aligned with style.css purple color for greeting */
+    color: #d896ff;
   }
 
   .profile-icon {
@@ -114,7 +112,7 @@
     font-size: 2.5rem;
     line-height: 1.4;
     white-space: normal;
-    color: #e6e6e6; /* Default color */
+    color: #e6e6e6;
   }
 
   .intro-text h1 span {
@@ -131,7 +129,7 @@
   .location {
     font-size: 1.8rem;
     margin-bottom: 20px;
-    color: #ffffe3; /* Light yellow color for location */
+    color: #ffffe3;
   }
 
   .connect-button, .resume-button {
@@ -173,15 +171,14 @@
 
   .section__text__p1 {
     font-size: 1.5rem;
-    color: #d896ff; /* Purple text for section titles */
+    color: #d896ff;
   }
 
   .section__text__p2 {
     font-size: 1.2rem;
-    color: #00c8ff; /* Light blue color */
+    color: #00c8ff;
   }
 
-  /* Social Icons */
   .icon {
     width: 40px;
     height: 40px;
@@ -192,7 +189,6 @@
     transform: scale(1.1);
   }
 
-  /* About Section */
   #about {
     padding: 20px;
     text-align: center;
@@ -211,7 +207,6 @@
     padding: 10px;
   }
 
-  /* Experience Section */
   #experience {
     text-align: center;
     padding: 20px;
@@ -222,19 +217,43 @@
     padding: 0;
   }
 
+  /* Updated Experience Sub-title */
   .experience-sub-title {
     font-size: 1.5rem;
     margin-bottom: 10px;
-    color: #ffffe3; /* Yellow color for sub-titles */
+    color: #ffffe3;
   }
 
+  /* Experience Articles */
   .article-container {
     flex-direction: column;
     gap: 15px;
     text-align: center;
   }
 
-  /* Contact Section */
+  article {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: left;
+    gap: 10px;
+  }
+
+  article img.CheckmarkIcon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+
+  article h3 {
+    font-size: 1.2rem;
+  }
+
+  article p {
+    font-size: 1rem;
+  }
+
   #contact {
     padding: 20px;
     background-color: #1b1b1b;
@@ -255,7 +274,6 @@
     font-size: 1.1rem;
   }
 
-  /* Footer Section */
   footer {
     padding: 20px;
     background-color: #111111;
@@ -269,7 +287,7 @@
 
   .footer-tagline h2 {
     font-size: 1.5rem;
-    color: #d896ff; /* Aligned with style.css purple */
+    color: #d896ff;
   }
 
   .footer-explore ul, .footer-follow ul {
@@ -302,10 +320,9 @@
   }
 
   .action-button:hover {
-    background-color: #16f1d1; /* Green hover for action buttons */
+    background-color: #16f1d1;
   }
 
-  /* Floating Icon Styling */
   .floating-icon {
     width: 50px;
     height: 50px;
@@ -319,4 +336,9 @@
     font-weight: bold;
   }
 
+  /* Removed animations for smoother loading */
+  .fade-in-up, .fade-in-down, .fade-in-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
