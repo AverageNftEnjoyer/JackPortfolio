@@ -2,6 +2,7 @@ let inputCode = "";
 
 // Function to handle input
 function enterNumber(num) {
+    playKeyClickSound(); // Play sound for each key click
     inputCode += num; 
     document.getElementById('output').textContent = inputCode; 
     if (inputCode.length > 4) {
@@ -12,6 +13,7 @@ function enterNumber(num) {
 
 // Function to handle submitting the code
 function submitCode() {
+    playKeyClickSound(); // Play sound for submit button
     if (inputCode === "1987") {
         playFullScreenVideo(); 
     } else {
@@ -23,6 +25,7 @@ function submitCode() {
 
 // Function to handle clearing the input
 function clearOutput() {
+    playKeyClickSound(); // Play sound for clear button
     inputCode = ""; 
     document.getElementById('output').textContent = inputCode; 
 }
@@ -56,4 +59,9 @@ function playFullScreenVideo() {
     video.onended = function () {
         document.body.removeChild(video); 
     };
+}
+
+function playKeyClickSound() {
+    const audio = new Audio("assets/keyclick.mp3"); 
+    audio.play();
 }
