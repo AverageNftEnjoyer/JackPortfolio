@@ -202,6 +202,7 @@
   .github-icon {
     width: 100px; /* Make the icon wider */
     height: auto; /* Keep the height proportional */
+    margin-top: 10px; /* Adjust this value to lower the GitHub icon */
   }
   .resume-icon {
     width: 60px; /* Make the icon wider */
