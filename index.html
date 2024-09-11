@@ -274,6 +274,14 @@
           </div>
     </footer>
     <script>
+      document.addEventListener("DOMContentLoaded", function() {
+  setTimeout(function() {
+      document.getElementById("loader").style.display = "none";
+  }, 9000); 
+});
+    </script>
+
+    <script>
       if (window.innerWidth <= 768) {
         window.location.href = "mobile.html";
       }

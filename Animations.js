@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", function () {
   const sections = document.querySelectorAll("section");
 
@@ -43,3 +44,4 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 });
+
