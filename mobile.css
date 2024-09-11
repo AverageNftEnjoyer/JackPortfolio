@@ -5,7 +5,6 @@
   * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
   }
 
   body {
@@ -80,13 +79,14 @@
   }
 
   #main-content {
+    padding-top: 60px; /* Ensure there's enough space below the fixed navbar */
+    margin-top: 0; 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: auto;
-    padding: 80px 10px;
-    margin-top: 60px;
+    overflow-x: hidden;
   }
 
   .intro-container {
