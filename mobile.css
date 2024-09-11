@@ -451,3 +451,55 @@ a.nav-button:hover {
 .glow-shake {
   animation: glow 1.5s infinite ease-in-out, shake 0.3s ease-in-out;
 }
+/* Projects Section Styling */
+.projects-container {
+  display: flex;
+  flex-direction: column;  /* Stack projects vertically */
+  gap: 20px;  /* Space between projects */
+  padding: 20px;
+}
+
+.project-item {
+  display: flex;
+  flex-direction: column;  /* Ensure elements are stacked vertically */
+  align-items: center;  /* Center the content */
+  text-align: center;
+  background-color: #1b1b1b;  /* Dark background for each project */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.project-img, .project-video {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.project-title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;  /* Space between buttons */
+}
+
+.project-btn {
+  background-color: transparent;
+  border: 2px solid #00c8ff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  color: #e6e6e6;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.project-btn:hover {
+  background-color: #00c8ff;
+  color: #111111;
+}
+
