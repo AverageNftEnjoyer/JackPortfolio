@@ -36,7 +36,7 @@
     background-color: #111111;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin-bottom: 30px;
-    position: fixed;
+    position: relative;
     top: 0;
     width: 100%;
     z-index: 999;
@@ -319,21 +319,4 @@
     font-weight: bold;
   }
 
-  /* Animations */
-  .fade-in-up {
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  }
-
-  .fade-in-down {
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-  }
-
-  .fade-in-visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
