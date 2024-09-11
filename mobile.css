@@ -17,7 +17,7 @@
     height: 100%; /* Ensures the height takes up the full viewport */
     margin: 0; /* Ensures no default margins are applied */
     padding: 0; /* Removes any extra padding */
-    box-sizing: border-box;
+    scroll-behavior: smooth;
   }
 
   p, h1, h2, h3, h4, h5, h6 {
@@ -39,16 +39,13 @@
     left: 0; /* Ensures it aligns with the left edge of the screen */
     z-index: 999;
     margin: 0; /* Remove any margin */
-  }  
-  
-  .nav-left {
-    flex: 1;
   }
   
-  .nav-right {
+
+  .nav-left, .nav-right {
     flex: 1;
     display: flex;
-    justify-content: flex-end; 
+    justify-content: center;
   }
 
   .nav-links-left, .nav-links {
