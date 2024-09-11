@@ -1,4 +1,3 @@
-/* GENERAL STYLES */
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
@@ -10,7 +9,7 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #111111; /* Dark background for the entire website */
+  background-color: #111111; /* background for the entire website */
   color: #e6e6e6; /* Light grey text color */
   overflow-x: hidden;
   position: relative; 
@@ -41,8 +40,8 @@ nav {
   justify-content: space-between; /* Separate left and right sections */
   padding: 20px 40px;
   background-color: #111111; /* Dark background for the header */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  margin-bottom: 30px; /* Adds margin below the nav to prevent overlap */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+  margin-bottom: 30px; 
 }
 
 .nav-left {
@@ -52,7 +51,7 @@ nav {
 .nav-right {
   flex: 1;
   display: flex;
-  justify-content: flex-end; /* Align right-side buttons to the right */
+  justify-content: flex-end; 
 }
 
 .nav-links-left,
@@ -66,14 +65,14 @@ nav {
 a.nav-button {
   color: #e6e6e6; /* Light grey text color for links */
   text-decoration: none;
-  padding: 8px 16px; /* Reduced padding for smaller button size */
-  font-size: 0.9rem; /* Smaller font size for buttons */
+  padding: 8px 16px; 
+  font-size: 0.9rem; 
   transition: all 0.3s ease; 
 }
 
 a.nav-button:hover {
   color: #ffffff; /* Hover color for links */
-  text-decoration: none; /* Removes underline on hover */
+  text-decoration: none; 
 }
 
 .logo {
@@ -90,11 +89,11 @@ a.nav-button:hover {
 section {
   padding: 40px 20px; /* Reduced padding for all sections */
   margin: 0 8rem; /* Reduced horizontal margin */
-  background-color: #111111; /* Dark background for sections */
-  border-radius: 10px; /* Rounded corners for sections */
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
-  color: #e6e6e6; /* Light grey text color for section content */
-  position: relative; /* Position relative for floating icons to move inside */
+  background-color: #111111; 
+  border-radius: 10px; 
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); 
+  color: #e6e6e6; 
+  position: relative; 
 }
 
 .section-container {
@@ -110,81 +109,81 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90vh; /* Reduced height */
+  height: 90vh; 
   text-align: center;
-  position: relative; /* Relative positioning to contain absolute children */
-  overflow: hidden; /* Hide overflow of floating icons */
+  position: relative; 
+  overflow: hidden; 
   padding: 0 3px; /* Reduced side padding */
   margin-top: -20px; /* Reduced top margin */
 }
 
 /* Floating Icon Styling */
 .floating-icon {
-    width: 75px; /* Set the desired width */
-    height: 75px; /* Set the desired height */
-    position: absolute; /* Position them absolutely for floating effect */
-    object-fit: contain; /* Maintain aspect ratio */
-    z-index: 1; /* Lower z-index to ensure they stay behind other elements */
-    pointer-events: none; /* Prevent interaction with other elements */
-    top: -40%; /* Start from the middle */
-    left: -25%; /* Start from the middle */
-    transform: translate(0, 0); /* Adjust initial translation to no offset */
+    width: 75px;
+    height: 75px;
+    position: absolute; 
+    object-fit: contain;
+    z-index: 1;
+    pointer-events: none; 
+    top: -40%;
+    left: -25%; 
+    transform: translate(0, 0); 
   }
 
 .intro-container {
   max-width: 800px;
   margin: 0 auto;
-  position: relative; /* Ensure floating icons can move around the content */
+  position: relative;
 }
 
 .intro-text {
   position: relative;
-  color: #e6e6e6; /* Default text color */
+  color: #e6e6e6; 
 }
 
 .greeting {
-  font-size: 3.5rem; /* Increased font size */
+  font-size: 3.5rem;
   color: #e6e6e6;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: -20px; /* Adjusted to bring it closer to the following text */
-  font-weight: bold; /* Made text bold */
+  margin-bottom: -20px; 
+  font-weight: bold; 
 }
 
 .profile-icon {
-  width: 120px;  /* Adjust size here */
-  height: 120px; /* Adjust size here */
-  margin-right: 15px; /* Keeps the spacing to the right */
+  width: 120px;  
+  height: 120px;
+  margin-right: 15px; 
   border-radius: 50%; 
-  transition: box-shadow 0.3s ease-in-out; /* Smooth transition for the glow effect */
+  transition: box-shadow 0.3s ease-in-out; 
 }
 
 
 
 .intro-text {
   position: relative;
-  color: #e6e6e6; /* Default text color */
-  display: flex; /* Use flexbox to align items horizontally */
-  flex-wrap: wrap; /* Allow wrapping for smaller screens */
-  justify-content: center; /* Center content horizontally */
-  align-items: center; /* Align items vertically to the center */
-  gap: 20px; /* Add space between elements */
+  color: #e6e6e6;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 .intro-text h1 {
-  font-size: 5rem; /* Significantly increased font size */
+  font-size: 5rem;
   font-weight: 700;
-  line-height: 1.2; /* Adjusted line-height for readability */
-  margin-bottom: 20px; /* Adjusted space below the heading */
-  display: inline-block; /* Ensure each line behaves as a block element */
-  text-align: center; /* Center the text */
-  white-space: nowrap; /* Prevent line breaks within the text */
+  line-height: 1.2;
+  margin-bottom: 20px;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .intro-text h1 span {
-  display: inline; /* Display each span inline to spread text horizontally */
-  margin-right: 10px; /* Add some space between words */
+  display: inline;
+  margin-right: 10px;
 }
 
 .highlight-purple {
@@ -203,22 +202,23 @@ section {
   color: #16f1d1;
 }
 
+
 .details {
   display: flex;
-  justify-content: flex-start; /* Align content to the left */
+  justify-content: flex-start; 
   align-items: center;
-  gap: 20px; /* Adjusted gap for spacing between text and icons */
-  margin-bottom: 20px; /* Adjusted margin below the details */
-  flex-wrap: wrap; /* Allow wrapping for smaller screens */
-  padding-left: 0; /* Reduced padding to move content more to the left */
+  gap: 20px; 
+  margin-bottom: 20px; 
+  flex-wrap: wrap; 
+  padding-left: 0; 
 }
 
 .location {
-  font-size: 2.5rem; /* Increased font size for better visibility */
-  font-weight: bold; /* Made text bold */
+  font-size: 2.5rem; 
+  font-weight: bold; 
   color: #e6e6e6;
-  margin-right: 60px; /* Add margin to create space between the text and icons */
-  margin-top: -40px; /* Move icons closer to the text above */
+  margin-right: 60px; 
+  margin-top: -40px; 
 }
 
 /* BUTTON STYLES */
@@ -226,33 +226,33 @@ section {
 .connect-button,
 .resume-button {
   background-color: transparent;
-  border: 2px solid #0277b5; /* Blue border for buttons */
-  padding: 15px 25px; /* Increased padding for larger buttons */
-  border-radius: 30px; /* Rounded corners for all buttons */
-  color: #e6e6e6; /* Light grey text color for all buttons */
-  font-size: 1.5rem; /* Increased font size for better visibility */
+  border: 2px solid #0277b5;
+  padding: 15px 25px;
+  border-radius: 30px;
+  color: #e6e6e6;
+  font-size: 1.5rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  width: 200px; /* Increased width for larger buttons */
-  text-align: center; /* Center text in all buttons */
-  display: flex; /* Added flexbox to align icon and text */
-  align-items: center; /* Vertically center icon and text */
-  justify-content: center; /* Horizontally center icon and text */
+  width: 200px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .connect-button:hover,
 .resume-button:hover {
   background-color: #0277b5;
-  color: #111111; /* Dark text color on hover */
-  transform: scale(1.05); /* Slight scale up on hover */
+  color: #111111;
+  transform: scale(1.05);
 }
 
 .resume-button {
-  border-color: #00c8ff; /* Blue border for "Download Resume" button */
+  border-color: #00c8ff;
 }
 
 .resume-button:hover {
-  background-color: #00c8ff; /* Blue background on hover for "Download Resume" button */
+  background-color: #00c8ff;
 }
 
 /* ANIMATIONS */
@@ -288,9 +288,9 @@ section {
   height: 400px;
   width: 400px;
   margin: auto 0;
-  border-radius: 50%; /* Circle profile image */
-  overflow: hidden; /* Ensure image fits within circle */
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Shadow for profile picture */
+  border-radius: 50%; 
+  overflow: hidden; 
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); 
 }
 
 .section__text {
@@ -331,13 +331,13 @@ section {
 
 .icon {
   cursor: pointer;
-  height: 60px; /* Increased size for larger icons */
-  width: 60px; /* Ensure width matches height */
-  transition: all 300ms ease; /* Smooth transition effect */
+  height: 60px; 
+  width: 60px; 
+  transition: all 300ms ease; 
 }
 
 .icon:hover {
-  transform: scale(1.1); /* Slight scale up on hover */
+  transform: scale(1.1); 
 }
 
 /* ABOUT SECTION */
@@ -364,17 +364,17 @@ section {
 
 .about-pic {
   border-radius: 10px;
-  overflow: hidden; /* Ensure image fits within the rounded corner */
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Shadow for about picture */
+  overflow: hidden; 
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); 
 }
 
 
 .details-container {
   padding: 1.5rem;
   flex: 1;
-  background: #1b1b1b; /* Dark background for details container */
+  background: #1b1b1b; 
   border-radius: 10px;
-  border: 2px solid #d896ff; /* border color */
+  border: 2px solid #d896ff; 
   text-align: center;
   color: #e6e6e6;
 }
@@ -386,7 +386,7 @@ section {
 }
 
 .experience-sub-title {
-  color: #ffffe3; /* Blue color for sub-title */
+  color: #ffffe3;
   font-weight: 600;
   font-size: 1.75rem;
   margin-bottom: 2rem;
@@ -398,17 +398,17 @@ section {
   flex-direction: column;
 }
 .CheckmarkIcon {
-    width: 50px; /* Set the width of the icons */
-    height: 50px; /* Set the height of the icons */
-    margin-right: 1px; /* Add space between icon and text */
-    flex-shrink: 0; /* Prevent icon from shrinking */
+    width: 50px; 
+    height: 50px;
+    margin-right: 1px; 
+    flex-shrink: 0; 
     transition: transform 0.3s ease, color 0.3s ease; 
-    filter: invert(0) brightness(1); /* Display the icon as black checkmark on a white background */
+    filter: invert(0) brightness(1); 
 }
 
 .CheckmarkIcon:hover {
-    animation: checkHover 0.6s infinite alternate; /* Apply animation on hover */
-    filter: invert(1) brightness(2); /* Display the icon as white checkmark on a black background */
+    animation: checkHover 0.6s infinite alternate; 
+    filter: invert(1) brightness(2); 
 
 }
 
@@ -429,18 +429,18 @@ section {
 .Experience-container {
     padding: 1.5rem;
     flex: 1;
-    background: #1b1b1b; /* Dark background for details container */
+    background: #1b1b1b; 
     border-radius: 10px;
-    border: 2px solid #ffcc66; /* border color */
+    border: 2px solid #ffcc66;
     text-align: center;
     color: #e6e6e6;
   }
   .Education-container {
     padding: 1.5rem;
     flex: 1;
-    background: #1b1b1b; /* Dark background for details container */
+    background: #1b1b1b; 
     border-radius: 10px;
-    border: 2px solid #16f1d1; /* border color */
+    border: 2px solid #16f1d1; 
     text-align: center;
     color: #e6e6e6;
   }
@@ -483,13 +483,39 @@ article {
 
 article .icon {
   cursor: default;
-  color: #ff0000; /* Light grey color for article icons */
+  color: #ff0000; 
 }
 
 .text-container p {
-    font-size: 1.3em; /* Adjusts the font size to be larger */
-    line-height: 1.6; /* Increases line height for better readability */
+    font-size: 1.3em; 
+    line-height: 1.6; 
   }
+
+  .about-me-container p {
+    font-size: 1.3em; 
+    line-height: 1.6; 
+  }
+
+.highlight-text-purple {
+  color: #d896ff;
+  font-weight: bold;
+}
+
+.highlight-text-orange {
+  color: #ffcc66;
+  font-weight: bold;
+}
+
+.highlight-text-blue {
+  color: #00c8ff;
+  font-weight: bold;
+}
+
+.highlight-text-green {
+  color: #16f1d1;
+  font-weight: bold;
+}
+
 
 
 /* CONTACT SECTION */
@@ -499,8 +525,8 @@ article .icon {
   justify-content: center;
   flex-direction: column;
   height: 70vh;
-  background-color: #1b1b1b; /* Dark background for contact section */
-  border-radius: 10px; /* Rounded corners for contact section */
+  background-color: #1b1b1b; 
+  border-radius: 10px; 
   padding: 20px;
 }
 
@@ -508,8 +534,8 @@ article .icon {
   display: flex;
   justify-content: center;
   border-radius: 10px;
-  border: 2px solid #ff8c00; /* Orange border for contact section */
-  background-color: #111111; /* Dark background for contact info */
+  border: 2px solid #ff8c00; 
+  background-color: #111111; 
   margin: 2rem auto;
   padding: 1rem;
 }
@@ -524,12 +550,12 @@ article .icon {
 
 .contact-info-container p {
   font-size: larger;
-  color: #e6e6e6; /* Light grey text color */
+  color: #e6e6e6; 
 }
 
 .contact-icon {
   cursor: default;
-  color: #e6e6e6; /* Light grey color for contact icons */
+  color: #e6e6e6; 
 }
 
 .email-icon {
@@ -541,13 +567,13 @@ article .icon {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  background-color: #111111; /* Dark background for footer */
+  background-color: #111111; 
   padding: 40px;
-  color: #e6e6e6; /* Light grey text color */
+  color: #e6e6e6; 
   
 }
 .footer-container a:hover {
-  color: #00c8ff; /* Color change on hover */
+  color: #00c8ff; 
   text-shadow: 0 0 5px #00c8ff, 0 0 10px #00c8ff; /* Glow effect */
 }
 
@@ -559,15 +585,15 @@ article .icon {
   font-size: 24px;
   font-weight: bold;
   margin: 0;
-  color: #e6e6e6; /* White text color */
+  color: #e6e6e6; 
 }
 
 .highlight-aesthetics {
-  color: #d896ff; /* Pink highlight */
+  color: #d896ff; 
 }
 
 .highlight-functionality {
-  color: #00c8ff; /* Blue highlight */
+  color: #00c8ff; 
 }
 
 .footer-explore, .footer-follow {
@@ -575,7 +601,7 @@ article .icon {
 }
 
 .footer-explore h3, .footer-follow h3 {
-  color: #ff8c00; /* Orange text color for section titles */
+  color: #ff8c00; 
   font-size: 18px;
   margin-bottom: 10px;
 }
@@ -603,69 +629,69 @@ article .icon {
 }
 
 .footer-follow .social-links a:hover {
-  color: #16f1d1; /* Hover color for social links, updated to green */
+  color: #16f1d1; 
 }
 
 .footer-actions {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Adds space between the action cards */
-    align-items: flex-start; /* Align items to the start of the container */
+    gap: 20px; 
+    align-items: flex-start; 
 }
 
 .action-card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 200px; /* Limits the width of the action card */
-    border-bottom: 1px solid #333; /* Adds a bottom border */
-    padding-bottom: 10px; /* Adds some padding to the bottom */
-    margin-bottom: 10px; /* Adds space below each card */
-    gap: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 200px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  gap: 20px;
 }
 
 .action-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 35px; /* Width of the circular button */
-    height: 35px; /* Height of the circular button */
-    border-radius: 50%; /* Makes the button circular */
-    background-color: transparent; /* Default background color */
-    border: 1px solid #333; /* Border color */
-    text-decoration: none; /* Removes underline from text */
-    transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid #333;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
 }
 
 .action-button i {
-    color: #ffffff; /* Default icon color */
-    transition: color 0.3s ease; /* Smooth transition for color */
+  color: #ffffff;
+  transition: color 0.3s ease;
 }
 
 .action-button:hover {
-    background-color: #16f1d1; /* Changes background color to the green used in your project */
-    transform: rotate(15deg); /* Rotates the button 15 degrees on hover */
+  background-color: #16f1d1;
+  transform: rotate(15deg);
 }
 
 .action-button:hover i {
-    color: #000000; /* Changes icon color to black on hover */
+    color: #000000; 
 }
   
   h3, p {
-    margin: 0; /* Removes default margin */
-    padding: 0; /* Removes default padding */
-    color: #ffffff; /* Text color */
+    margin: 0; 
+    padding: 0; 
+    color: #ffffff; 
   }
   
   h3 {
-    font-size: 1.2em; /* Font size for h3 */
-    font-weight: bold; /* Bold text for h3 */
+    font-size: 1.2em; 
+    font-weight: bold; 
   }
   
   p {
-    font-size: 0.9em; /* Font size for paragraph */
-    color: #cccccc; /* Lighter color for paragraph text */
+    font-size: 0.9em; 
+    color: #cccccc; 
   }
   
 
@@ -699,8 +725,8 @@ article .icon {
 .nav-button {
   position: relative;
   display: inline-block;
-  padding: 15px 30px; /* Increased padding for larger buttons */
-  font-size: 1.5rem; /* Increased font size */
+  padding: 15px 30px;
+  font-size: 1.5rem; 
   color: #ffffff;
   background-color: transparent;
   border: 2px solid #ffffff;
@@ -708,8 +734,8 @@ article .icon {
   cursor: pointer;
   overflow: hidden;
   transition: color 0.3s ease;
-  outline: none; /* Remove default focus outline */
-  text-decoration: none; /* Remove underline from focus */
+  outline: none; 
+  text-decoration: none; 
 }
 
 .nav-button::before {
@@ -719,7 +745,7 @@ article .icon {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: transparent; /* Changed from blue to transparent */
+  background-color: transparent; 
   z-index: 0;
   transition: transform 0.4s ease;
   transform: scaleX(0);
@@ -736,9 +762,9 @@ article .icon {
 
 .nav-button span {
   position: relative;
-  z-index: 1; /* Ensure text stays above the pseudo-element */
+  z-index: 1; 
   display: inline-block;
-  transition: color 0.4s ease; /* Smooth transition for text color */
+  transition: color 0.4s ease; 
 }
 
 /* Glow and Shake Animation for Hover */
@@ -752,7 +778,7 @@ article .icon {
   height: 60px;
   width: 60px;
   transition: transform 300ms ease; 
-  margin-left: -50px; /* Moved icons closer to the text */
+  margin-left: -50px; 
   margin-top: -40px; 
 }  
 
@@ -764,14 +790,14 @@ article .icon {
   height: 80px;
   width: 100px; 
   transition: transform 300ms ease; 
-  margin-left: -10px; /* Moved icons closer to the text */
+  margin-left: -10px; 
   margin-top: -40px; 
 }
 
 .resume-icon {
   height: 60px;
   transition: transform 300ms ease; 
-  margin-left: -10px; /* Moved icons closer to the text */
+  margin-left: -10px; 
   margin-top: -40px; 
 }
 
@@ -803,13 +829,13 @@ article .icon {
 /* Responsive Design: Adjust icon size on smaller screens */
 @media (max-width: 768px) {
   .icon {
-    width: 40px;  /* Adjust width for smaller screens */
-    height: 40px; /* Adjust height for smaller screens */
+    width: 40px;  
+    height: 40px; 
   }
 
   .floating-icon {
-    width: 40px;  /* Adjust width for floating icons on smaller screens */
-    height: 40px; /* Adjust height for floating icons on smaller screens */
+    width: 40px;  
+    height: 40px;
   }
 }
 

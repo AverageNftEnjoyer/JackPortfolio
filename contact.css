@@ -200,7 +200,7 @@ a,
 
 /* Success Message Styles */
 .success-message {
-  display: none; /* Hidden by default */
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -217,7 +217,6 @@ a,
   margin-bottom: 10px;
 }
 
-/* Fade in the success message */
 @keyframes fadeIn {
   from {
     opacity: 0;

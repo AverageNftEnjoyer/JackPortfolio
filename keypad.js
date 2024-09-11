@@ -15,16 +15,16 @@ function submitCode() {
     if (inputCode === "1987") {
         playFullScreenVideo(); 
     } else {
-        alert("Incorrect code! Try again."); // Handle incorrect code
+        alert("Incorrect code! Try again."); 
     }
-    inputCode = ""; // Reset the input after submission
-    document.getElementById('output').textContent = inputCode; // Reset display
+    inputCode = ""; 
+    document.getElementById('output').textContent = inputCode; 
 }
 
 // Function to handle clearing the input
 function clearOutput() {
-    inputCode = ""; // Reset the input
-    document.getElementById('output').textContent = inputCode; // Reset display
+    inputCode = ""; 
+    document.getElementById('output').textContent = inputCode; 
 }
 
 // Function to play the full-screen video
@@ -41,22 +41,19 @@ function playFullScreenVideo() {
     video.style.zIndex = 9999; // Bring it to the front
     video.style.backgroundColor = "black"; // Ensure there's no background flash
 
-    // Automatically go full screen if supported
     if (video.requestFullscreen) {
         video.requestFullscreen();
-    } else if (video.mozRequestFullScreen) { // Firefox
+    } else if (video.mozRequestFullScreen) { 
         video.mozRequestFullScreen();
-    } else if (video.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+    } else if (video.webkitRequestFullscreen) { 
         video.webkitRequestFullscreen();
-    } else if (video.msRequestFullscreen) { // IE/Edge
+    } else if (video.msRequestFullscreen) { 
         video.msRequestFullscreen();
     }
 
-    // Append the video to the body
     document.body.appendChild(video);
 
-    // Event listener to remove video after it ends
     video.onended = function () {
-        document.body.removeChild(video); // Remove the video element after playback
+        document.body.removeChild(video); 
     };
 }

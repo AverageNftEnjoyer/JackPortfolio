@@ -7,19 +7,15 @@ document.querySelectorAll('.move-on-hover').forEach((icon) => {
     const mouseX = e.clientX;
     const mouseY = e.clientY;
 
-    // Calculate the direction
     const deltaX = mouseX - iconCenterX;
     const deltaY = mouseY - iconCenterY;
 
-    // Normalize the deltas to calculate diagonal movement
     const distance = Math.sqrt(deltaX ** 2 + deltaY ** 2);
     const normalizedDeltaX = deltaX / distance;
     const normalizedDeltaY = deltaY / distance;
 
-    // Set movement distance
-    const moveDistance = 20; // You can adjust this value for more or less movement
+    const moveDistance = 20; 
 
-    // Apply diagonal transform for opposite movement
     const translateX = -normalizedDeltaX * moveDistance;
     const translateY = -normalizedDeltaY * moveDistance;
 
@@ -51,13 +47,12 @@ document.addEventListener("DOMContentLoaded", function () {
     if (index < message.length) {
       messageElement.innerHTML += message.charAt(index);
       index++;
-      setTimeout(typeMessage, 50); // Adjust the typing speed here
+      setTimeout(typeMessage, 50); 
     } else {
-      messageElement.style.fontWeight = "bold"; // Bold the text once typing is complete
-      messageElement.style.textDecoration = "underline"; // Underline the text once typing is complete
+      messageElement.style.fontWeight = "bold"; 
+      messageElement.style.textDecoration = "underline"; 
     }
   }
 
-  // Start typing effect once the page has loaded
   typeMessage();
 });
