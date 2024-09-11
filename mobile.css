@@ -19,7 +19,6 @@
     padding-bottom: 20px; /* Add some padding to prevent content from touching the footer */
   }
 
-
   html {
     scroll-behavior: smooth;
   }
@@ -145,14 +144,13 @@
     margin-bottom: 20px;
   }
 
-    .location {
-      font-size: 1.2rem; /* Reduce the font size to fit on one line */
-      font-weight: bold;
-      margin-bottom: 20px;
-      white-space: nowrap; /* Prevent the text from breaking into multiple lines */
-      text-align: center; /* Center the text if needed */
-    }
-  
+  .location {
+    font-size: 1.2rem; /* Reduce the font size to fit on one line */
+    font-weight: bold;
+    margin-bottom: 20px;
+    white-space: nowrap; /* Prevent the text from breaking into multiple lines */
+    text-align: center; /* Center the text if needed */
+  }
 
   .connect-button, .resume-button {
     padding: 10px 15px;
@@ -186,7 +184,7 @@
   .section__text__p1 {
     font-size: 1.5rem;
     font-weight: bold;
-    color:#d896ff
+    color:#d896ff;
   }
 
   .section__text__p2 {
@@ -199,21 +197,23 @@
     height: 40px;
     margin: 10px;
   }
+
   .github-icon {
     width: 100px; /* Make the icon wider */
     height: auto; /* Keep the height proportional */
     margin-top: 10px; /* Adjust this value to lower the GitHub icon */
   }
+
   .resume-icon {
     width: 60px; /* Make the icon wider */
     height: auto; /* Keep the height proportional */
   }
+
   .linked-icon {
     width: 60px; /* Make the icon wider */
     height: auto; /* Keep the height proportional */
   }
 
-  
   .icon:hover {
     transform: scale(1.1);
   }
@@ -304,27 +304,25 @@
     font-size: 1.1rem;
   }
 
-  
   .highlight-text-purple {
     color: #d896ff;
     font-weight: bold;
   }
-  
+
   .highlight-text-orange {
     color: #ffcc66;
     font-weight: bold;
   }
-  
+
   .highlight-text-blue {
     color: #00c8ff;
     font-weight: bold;
   }
-  
+
   .highlight-text-green {
     color: #16f1d1;
     font-weight: bold;
   }
-  
 
   /* Animations */
   .fade-in-up {
@@ -344,149 +342,210 @@
     transform: translateY(0);
   }
 
-}
-/* Mobile Nav Styles */
-#mobile-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-  background-color: #111111;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  position: relative;
-  z-index: 999;
-}
+  /* Keypad Section */
+  .keypad-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #1b1b1b;
+    border-radius: 10px;
+    margin: 20px 0;
+  }
 
-.nav-left, .nav-right {
-  flex: 1;
-}
+  #output {
+    width: 100%;
+    height: 50px;
+    background-color: #333333;
+    color: #ffffff;
+    text-align: center;
+    line-height: 50px;
+    font-size: 18px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  }
 
-.nav-links-left, .nav-links {
-  display: flex;
-  justify-content: center;
-  gap: 15px;  /* Adjust the spacing for mobile */
-  list-style: none;
-}
+  .keypad {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 10px;
+    justify-items: center;
+  }
 
-.nav-links {
-  justify-content: flex-end;
-}
+  .row {
+    display: flex;
+    justify-content: center;
+  }
 
+  .key {
+    background-color: #888282b5;
+    border: none;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 15px;
+    margin: 5px;
+    border-radius: 5px;
+    width: 60px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
 
-a.nav-button:hover {
-  color: #ffffff;
-  text-decoration: none; 
-}
-.nav-button {
-  position: relative;
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 1.2rem; 
-  color: #ffffff;
-  background-color: transparent;
-  border: 2px solid #ffffff;
-  border-radius: 30px;
-  text-align: center;
-  cursor: pointer;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  outline: none; 
-  text-decoration: none; 
-}
+  .key:hover {
+    background-color: #000000;
+    box-shadow: 0 0 10px #ffffff, 0 0 20px #989898;
+  }
 
-.nav-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: transparent; 
-  z-index: 0;
-  transition: transform 0.4s ease;
-  transform: scaleX(0);
-  transform-origin: left;
-}
+  .key.wide {
+    width: 120px;
+    padding: 10px;
+  }
 
-.nav-button:hover::before {
-  transform: scaleX(1);
-}
+  /* Mobile Nav Styles */
+  #mobile-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #111111;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 999;
+  }
 
-.nav-button:hover {
-  color: white; 
-}
+  .nav-left, .nav-right {
+    flex: 1;
+  }
 
-.nav-button span {
-  position: relative;
-  z-index: 1; 
-  display: inline-block;
-  transition: color 0.4s ease; 
-}
+  .nav-links-left, .nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    list-style: none;
+  }
 
-/* Glow and Shake Animation for Hover */
-.glow-shake {
-  animation: glow 1.5s infinite ease-in-out, shake 0.3s ease-in-out;
-}
-/* Projects Section Styling */
-.projects-container {
-  display: flex;
-  text-align: center;
-  flex-direction: column;  /* Stack projects vertically */
-  gap: 20px;  /* Space between projects */
-  padding: 20px;
-}
+  .nav-links {
+    justify-content: flex-end;
+  }
 
-.project-item {
-  display: flex;
-  flex-direction: column;  /* Ensure elements are stacked vertically */
-  align-items: center;  /* Center the content */
-  text-align: center;
-  background-color: #1b1b1b;  /* Dark background for each project */
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+  a.nav-button:hover {
+    color: #ffffff;
+    text-decoration: none;
+  }
 
-.project-img, .project-video{
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-  margin-bottom: 15px;
-}
-.project-title {
-  font-size: 1.5rem;
-  text-align: center;
-  margin-bottom: 10px;
-}
+  .nav-button {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: #ffffff;
+    background-color: transparent;
+    border: 2px solid #ffffff;
+    border-radius: 30px;
+    text-align: center;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    outline: none;
+    text-decoration: none;
+  }
 
-.btn-container {
-  display: flex;
-  justify-content: center;
-  gap: 10px;  /* Space between buttons */
-}
+  .nav-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    z-index: 0;
+    transition: transform 0.4s ease;
+    transform: scaleX(0);
+    transform-origin: left;
+  }
 
-.project-btn {
-  background-color: transparent;
-  border: 2px solid #00c8ff;
-  padding: 10px 15px;
-  border-radius: 5px;
-  color: #e6e6e6;
-  text-align: center;
-  transition: background-color 0.3s ease;
-}
+  .nav-button:hover::before {
+    transform: scaleX(1);
+  }
 
-.project-btn:hover {
-  background-color: #00c8ff;
-  color: #111111;
-}
+  .nav-button:hover {
+    color: white;
+  }
 
-@media screen and (max-width: 393px) and (min-width: 320px) {
+  .nav-button span {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    transition: color 0.4s ease;
+  }
+
+  /* Glow and Shake Animation for Hover */
+  .glow-shake {
+    animation: glow 1.5s infinite ease-in-out, shake 0.3s ease-in-out;
+  }
+
+  /* Projects Section Styling */
+  .projects-container {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .project-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #1b1b1b;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .project-img, .project-video {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+
+  .project-title {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .project-btn {
+    background-color: transparent;
+    border: 2px solid #00c8ff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: #e6e6e6;
+    text-align: center;
+    transition: background-color 0.3s ease;
+  }
+
+  .project-btn:hover {
+    background-color: #00c8ff;
+    color: #111111;
+  }
+
+  /* Footer Styling */
   footer {
     background-color: #111111;
-    padding: 30px 20px; /* Increase padding to add height */
+    padding: 30px 20px;
     text-align: center;
     color: #e6e6e6;
-    min-height: 150px; /* Ensure a larger footer area */
+    min-height: 150px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     margin-top: 20px;
   }
@@ -505,7 +564,7 @@ a.nav-button:hover {
   }
 
   .highlight-aesthetics {
-    color: #d896ff; /* Keep the color styling */
+    color: #d896ff;
   }
 
   .highlight-functionality {
@@ -516,7 +575,7 @@ a.nav-button:hover {
   .footer-follow h3 {
     font-size: 1.2rem;
     margin-bottom: 10px;
-    color: #ffcc66; /* Yellow heading color */
+    color: #ffcc66;
   }
 
   .footer-explore ul,
@@ -544,7 +603,7 @@ a.nav-button:hover {
 
   .footer-explore a:hover,
   .footer-follow a:hover {
-    color: #00c8ff; /* Add hover effect for links */
+    color: #00c8ff;
     text-shadow: 0 0 5px #00c8ff, 0 0 10px #00c8ff;
   }
 
@@ -587,7 +646,7 @@ a.nav-button:hover {
   }
 
   .action-button:hover {
-    background-color: #16f1d1; /* Glow animation */
+    background-color: #16f1d1;
     transform: rotate(15deg);
   }
 
@@ -595,6 +654,3 @@ a.nav-button:hover {
     color: #000000;
   }
 }
-
-
-
