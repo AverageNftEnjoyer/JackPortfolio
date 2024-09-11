@@ -202,13 +202,16 @@
   .github-icon {
     width: 100px; /* Make the icon wider */
     height: auto; /* Keep the height proportional */
-    transition: transform 0.3s ease; /* Keep the hover effect */
   }
-  
-  /* Optional hover effect to make it visually consistent */
-  .github-icon:hover {
-    transform: scale(1.05); /* Slight scale on hover */
+  .resume-icon {
+    width: 100px; /* Make the icon wider */
+    height: auto; /* Keep the height proportional */
   }
+  .linked-icon {
+    width: 100px; /* Make the icon wider */
+    height: auto; /* Keep the height proportional */
+  }
+
   
   .icon:hover {
     transform: scale(1.1);
