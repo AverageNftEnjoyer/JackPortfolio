@@ -371,3 +371,28 @@
   }
 
 }
+/* Resume LinkedIn Github Icons */
+.icon {
+  cursor: pointer;
+  height: 60px;
+  width: 60px;
+  transition: transform 300ms ease; 
+  margin-left: -50px; 
+  margin-top: -40px; 
+}  
+
+
+.github-icon {
+  height: 80px;
+  width: 100px; 
+  transition: transform 300ms ease; 
+  margin-left: -10px; 
+  margin-top: -40px; 
+}
+
+.resume-icon {
+  height: 60px;
+  transition: transform 300ms ease; 
+  margin-left: -10px; 
+  margin-top: -40px; 
+}
