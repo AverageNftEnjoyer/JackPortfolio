@@ -327,10 +327,26 @@
     left: -20%;
   }
 
-  .highlight-text-purple, .highlight-text-orange, .highlight-text-blue, .highlight-text-green {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
+  .highlight-text-purple {
+    color: #d896ff;
+    font-weight: bold;
   }
+  
+  .highlight-text-orange {
+    color: #ffcc66;
+    font-weight: bold;
+  }
+  
+  .highlight-text-blue {
+    color: #00c8ff;
+    font-weight: bold;
+  }
+  
+  .highlight-text-green {
+    color: #16f1d1;
+    font-weight: bold;
+  }
+  
 
   /* Animations */
   .fade-in-up {
