@@ -470,12 +470,18 @@ a.nav-button:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.project-img, .project-video {
+.project-img, .project-video{
   max-width: 100%;
   height: auto;
   border-radius: 10px;
   margin-bottom: 15px;
 }
+project.gif{
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
 
 .project-title {
   font-size: 1.5rem;
