@@ -63,20 +63,24 @@
     font-size: 1.2rem;
     transition: all 0.3s ease;
     text-align: center;
+    border: 2px solid #e6e6e6;
+    border-radius: 20px;
   }
 
   a.nav-button:hover {
     color: #ffffff;
     background-color: #00c8ff;
+    box-shadow: 0 0 10px #00c8ff;
   }
 
   section {
     padding: 20px 10px;
     margin: 0 10px;
-    background-color: #111111;
+    background-color: #1b1b1b;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     color: #e6e6e6;
+    margin-top: 90px; /* Ensure content doesn't overlap the fixed header */
   }
 
   #main-content {
@@ -86,7 +90,6 @@
     align-items: center;
     height: auto;
     padding: 80px 10px;
-    margin-top: 60px;
   }
 
   .intro-container {
@@ -97,6 +100,7 @@
 
   .greeting {
     font-size: 2.5rem;
+    color: #d896ff; /* Aligned with style.css purple color for greeting */
   }
 
   .profile-icon {
@@ -110,6 +114,7 @@
     font-size: 2.5rem;
     line-height: 1.4;
     white-space: normal;
+    color: #e6e6e6; /* Default color */
   }
 
   .intro-text h1 span {
@@ -126,6 +131,7 @@
   .location {
     font-size: 1.8rem;
     margin-bottom: 20px;
+    color: #ffffe3; /* Light yellow color for location */
   }
 
   .connect-button, .resume-button {
@@ -133,10 +139,20 @@
     font-size: 1.2rem;
     width: 100%;
     margin-bottom: 10px;
+    border-radius: 20px;
+    background-color: transparent;
+    border: 2px solid #0277b5;
+    color: #e6e6e6;
   }
 
   .resume-button {
     border-color: #00c8ff;
+  }
+
+  .connect-button:hover, .resume-button:hover {
+    background-color: #00c8ff;
+    color: #111111;
+    transform: scale(1.05);
   }
 
   /* Profile Section */
@@ -151,18 +167,18 @@
     width: 200px;
     height: 200px;
     margin-bottom: 20px;
-  }
-
-  .section__text {
-    margin-bottom: 20px;
+    border-radius: 50%;
+    overflow: hidden;
   }
 
   .section__text__p1 {
     font-size: 1.5rem;
+    color: #d896ff; /* Purple text for section titles */
   }
 
   .section__text__p2 {
     font-size: 1.2rem;
+    color: #00c8ff; /* Light blue color */
   }
 
   /* Social Icons */
@@ -209,6 +225,7 @@
   .experience-sub-title {
     font-size: 1.5rem;
     margin-bottom: 10px;
+    color: #ffffe3; /* Yellow color for sub-titles */
   }
 
   .article-container {
@@ -252,6 +269,7 @@
 
   .footer-tagline h2 {
     font-size: 1.5rem;
+    color: #d896ff; /* Aligned with style.css purple */
   }
 
   .footer-explore ul, .footer-follow ul {
@@ -269,14 +287,22 @@
     width: 50px;
     height: 50px;
     margin-bottom: 10px;
+    background-color: transparent;
+    border: 2px solid #333;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
   }
 
   .action-button i {
     font-size: 20px;
+    color: #e6e6e6;
   }
 
   .action-button:hover {
-    background-color: #16f1d1;
+    background-color: #16f1d1; /* Green hover for action buttons */
   }
 
   /* Floating Icon Styling */
@@ -290,6 +316,7 @@
   .highlight-text-purple, .highlight-text-orange, .highlight-text-blue, .highlight-text-green {
     font-size: 1.2rem;
     margin-bottom: 5px;
+    font-weight: bold;
   }
 
   /* Animations */
@@ -309,5 +336,4 @@
     opacity: 1;
     transform: translateY(0);
   }
-
 }
