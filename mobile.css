@@ -17,7 +17,7 @@
     height: 100%; /* Ensures the height takes up the full viewport */
     margin: 0; /* Ensures no default margins are applied */
     padding: 0; /* Removes any extra padding */
-    scroll-behavior: smooth;
+    box-sizing: border-box;
   }
 
   p, h1, h2, h3, h4, h5, h6 {
@@ -29,12 +29,17 @@
   nav {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Separate left and right sections */
-    padding: 20px 40px;
-    background-color: #111111; /* Dark background for the header */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
-    margin-bottom: 30px; 
-  }
+    justify-content: space-between;
+    padding: 15px 20px;
+    background-color: #111111;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    position: fixed; /* Change to fixed to ensure it's always at the top */
+    top: 0;
+    left: 0; /* Ensures it aligns with the left edge of the screen */
+    z-index: 999;
+    margin: 0; /* Remove any margin */
+  }  
   
   .nav-left {
     flex: 1;
