@@ -8,18 +8,15 @@
     box-sizing: border-box;
   }
 
-  body {
+  body, html {
     font-family: "Poppins", sans-serif;
     background-color: #111111;
     color: #e6e6e6;
     overflow-x: hidden;
     font-size: 16px;
-    height: 100%; /* Adjust this to ensure full height */
-    min-height: 100vh; /* Ensure minimum viewport height */
-    padding-bottom: 20px; /* Add some padding to prevent content from touching the footer */
-  }
-
-  html {
+    height: 100%; /* Ensures the height takes up the full viewport */
+    margin: 0; /* Ensures no default margins are applied */
+    padding: 0; /* Removes any extra padding */
     scroll-behavior: smooth;
   }
 
@@ -36,7 +33,7 @@
     padding: 20px; /* Increased padding for better area */
     background-color: #111111;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: relative;
+    position: sticky;
     top: 0;
     width: 100%;
     z-index: 999;
@@ -85,9 +82,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: auto;
-    padding: 80px 10px;
-    margin-top: 60px;
+    min-height: 100vh; /* Ensures the content takes at least the full height of the viewport */
+    padding: 20px 0; /* Adds some spacing within the content, but prevents gaps at the top/bottom */
   }
 
   .intro-container {
@@ -545,9 +541,9 @@
     padding: 30px 20px;
     text-align: center;
     color: #e6e6e6;
-    min-height: 150px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    margin-top: 20px;
+    width: 100%;
+    position: relative;
   }
 
   .footer-container {
