@@ -36,8 +36,10 @@
     background-color: #111111;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin-bottom: 30px;
-    position: relative;
+    position: fixed;
+    top: 0;
     width: 100%;
+    z-index: 999;
   }
 
   .nav-left, .nav-right {
@@ -61,24 +63,20 @@
     font-size: 1.2rem;
     transition: all 0.3s ease;
     text-align: center;
-    border: 2px solid #e6e6e6;
-    border-radius: 20px;
   }
 
   a.nav-button:hover {
     color: #ffffff;
     background-color: #00c8ff;
-    box-shadow: 0 0 10px #00c8ff;
   }
 
   section {
     padding: 20px 10px;
     margin: 0 10px;
-    background-color: #1b1b1b;
+    background-color: #111111;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     color: #e6e6e6;
-    margin-top: 90px;
   }
 
   #main-content {
@@ -88,6 +86,7 @@
     align-items: center;
     height: auto;
     padding: 80px 10px;
+    margin-top: 60px;
   }
 
   .intro-container {
@@ -98,7 +97,6 @@
 
   .greeting {
     font-size: 2.5rem;
-    color: #d896ff;
   }
 
   .profile-icon {
@@ -112,12 +110,27 @@
     font-size: 2.5rem;
     line-height: 1.4;
     white-space: normal;
-    color: #e6e6e6;
   }
 
   .intro-text h1 span {
     display: block;
     margin-bottom: 10px;
+  }
+
+  .highlight-purple {
+    color: #d896ff;
+  }
+
+  .highlight-green {
+    color: #16f1d1;
+  }
+
+  .highlight-yellow {
+    color: #ffcc66;
+  }
+
+  .highlight-blue {
+    color: #00c8ff;
   }
 
   .details {
@@ -129,7 +142,6 @@
   .location {
     font-size: 1.8rem;
     margin-bottom: 20px;
-    color: #ffffe3;
   }
 
   .connect-button, .resume-button {
@@ -137,20 +149,10 @@
     font-size: 1.2rem;
     width: 100%;
     margin-bottom: 10px;
-    border-radius: 20px;
-    background-color: transparent;
-    border: 2px solid #0277b5;
-    color: #e6e6e6;
   }
 
   .resume-button {
     border-color: #00c8ff;
-  }
-
-  .connect-button:hover, .resume-button:hover {
-    background-color: #00c8ff;
-    color: #111111;
-    transform: scale(1.05);
   }
 
   /* Profile Section */
@@ -165,20 +167,21 @@
     width: 200px;
     height: 200px;
     margin-bottom: 20px;
-    border-radius: 50%;
-    overflow: hidden;
+  }
+
+  .section__text {
+    margin-bottom: 20px;
   }
 
   .section__text__p1 {
     font-size: 1.5rem;
-    color: #d896ff;
   }
 
   .section__text__p2 {
     font-size: 1.2rem;
-    color: #00c8ff;
   }
 
+  /* Social Icons */
   .icon {
     width: 40px;
     height: 40px;
@@ -189,6 +192,7 @@
     transform: scale(1.1);
   }
 
+  /* About Section */
   #about {
     padding: 20px;
     text-align: center;
@@ -207,6 +211,7 @@
     padding: 10px;
   }
 
+  /* Experience Section */
   #experience {
     text-align: center;
     padding: 20px;
@@ -217,14 +222,11 @@
     padding: 0;
   }
 
-  /* Updated Experience Sub-title */
   .experience-sub-title {
     font-size: 1.5rem;
     margin-bottom: 10px;
-    color: #ffffe3;
   }
 
-  /* Experience Articles */
   .article-container {
     flex-direction: column;
     gap: 15px;
@@ -234,16 +236,16 @@
   article {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 100%;
-    text-align: left;
-    gap: 10px;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #1b1b1b;
+    margin-bottom: 10px;
   }
 
   article img.CheckmarkIcon {
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
+    width: 35px;
+    height: 35px;
   }
 
   article h3 {
@@ -252,8 +254,10 @@
 
   article p {
     font-size: 1rem;
+    color: #cccccc;
   }
 
+  /* Contact Section */
   #contact {
     padding: 20px;
     background-color: #1b1b1b;
@@ -274,6 +278,7 @@
     font-size: 1.1rem;
   }
 
+  /* Footer Section */
   footer {
     padding: 20px;
     background-color: #111111;
@@ -287,7 +292,6 @@
 
   .footer-tagline h2 {
     font-size: 1.5rem;
-    color: #d896ff;
   }
 
   .footer-explore ul, .footer-follow ul {
@@ -305,24 +309,17 @@
     width: 50px;
     height: 50px;
     margin-bottom: 10px;
-    background-color: transparent;
-    border: 2px solid #333;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: background-color 0.3s ease, transform 0.3s ease;
   }
 
   .action-button i {
     font-size: 20px;
-    color: #e6e6e6;
   }
 
   .action-button:hover {
     background-color: #16f1d1;
   }
 
+  /* Floating Icon Styling */
   .floating-icon {
     width: 50px;
     height: 50px;
@@ -333,12 +330,24 @@
   .highlight-text-purple, .highlight-text-orange, .highlight-text-blue, .highlight-text-green {
     font-size: 1.2rem;
     margin-bottom: 5px;
-    font-weight: bold;
   }
 
-  /* Removed animations for smoother loading */
-  .fade-in-up, .fade-in-down, .fade-in-visible {
+  /* Animations */
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .fade-in-down {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .fade-in-visible {
     opacity: 1;
     transform: translateY(0);
   }
+
 }
