@@ -5,6 +5,7 @@
   * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
   }
 
   body {
@@ -79,14 +80,13 @@
   }
 
   #main-content {
-    padding-top: 60px; /* Ensure there's enough space below the fixed navbar */
-    margin-top: 0; 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: auto;
-    overflow-x: hidden;
+    padding: 80px 10px;
+    margin-top: 60px;
   }
 
   .intro-container {
@@ -143,10 +143,14 @@
     margin-bottom: 20px;
   }
 
-  .location {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-  }
+    .location {
+      font-size: 1.2rem; /* Reduce the font size to fit on one line */
+      font-weight: bold;
+      margin-bottom: 20px;
+      white-space: nowrap; /* Prevent the text from breaking into multiple lines */
+      text-align: center; /* Center the text if needed */
+    }
+  
 
   .connect-button, .resume-button {
     padding: 10px 15px;
@@ -180,7 +184,7 @@
   .section__text__p1 {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #d896ff;
+    color:#d896ff
   }
 
   .section__text__p2 {
