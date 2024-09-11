@@ -13,10 +13,12 @@
     background-color: #111111;
     color: #e6e6e6;
     overflow-x: hidden;
-    position: relative;
     font-size: 16px;
-    height: 100vh;
+    height: 100%; /* Adjust this to ensure full height */
+    min-height: 100vh; /* Ensure minimum viewport height */
+    padding-bottom: 20px; /* Add some padding to prevent content from touching the footer */
   }
+
 
   html {
     scroll-behavior: smooth;
@@ -32,14 +34,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 15px 20px;
+    padding: 20px; /* Increased padding for better area */
     background-color: #111111;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
     position: relative;
     top: 0;
     width: 100%;
     z-index: 999;
+    min-height: 60px; /* Ensure the header takes more vertical space */
   }
 
   .nav-left, .nav-right {
@@ -59,7 +61,7 @@
   a.nav-button {
     color: #e6e6e6;
     text-decoration: none;
-    padding: 10px 20px;
+    padding: 15px 20px;
     font-size: 1.2rem;
     transition: all 0.3s ease;
     text-align: center;
@@ -466,12 +468,13 @@ a.nav-button:hover {
 
 @media screen and (max-width: 393px) and (min-width: 320px) {
   footer {
-    padding: 20px;
-    background-color: #111111; /* Keep the dark background */
+    background-color: #111111;
+    padding: 30px 20px; /* Increase padding to add height */
     text-align: center;
-    color: #e6e6e6; /* Light grey text */
+    color: #e6e6e6;
+    min-height: 150px; /* Ensure a larger footer area */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
     margin-top: 20px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Similar shadow effect */
   }
 
   .footer-container {
