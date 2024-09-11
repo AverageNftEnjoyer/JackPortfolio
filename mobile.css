@@ -199,7 +199,17 @@
     height: 40px;
     margin: 10px;
   }
-
+  .github-icon {
+    width: 100px; /* Make the icon wider */
+    height: auto; /* Keep the height proportional */
+    transition: transform 0.3s ease; /* Keep the hover effect */
+  }
+  
+  /* Optional hover effect to make it visually consistent */
+  .github-icon:hover {
+    transform: scale(1.05); /* Slight scale on hover */
+  }
+  
   .icon:hover {
     transform: scale(1.1);
   }
@@ -581,4 +591,6 @@ a.nav-button:hover {
     color: #000000;
   }
 }
+
+
 
