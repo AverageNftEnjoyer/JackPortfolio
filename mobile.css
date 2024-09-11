@@ -454,6 +454,7 @@ a.nav-button:hover {
 /* Projects Section Styling */
 .projects-container {
   display: flex;
+  text-align: center;
   flex-direction: column;  /* Stack projects vertically */
   gap: 20px;  /* Space between projects */
   padding: 20px;
@@ -476,15 +477,9 @@ a.nav-button:hover {
   border-radius: 10px;
   margin-bottom: 15px;
 }
-project.gif{
-    width: auto;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 15px;
-  }
-
 .project-title {
   font-size: 1.5rem;
+  text-align: center;
   margin-bottom: 10px;
 }
 
