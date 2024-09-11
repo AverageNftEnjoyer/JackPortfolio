@@ -30,15 +30,17 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px; /* Increased padding for better area */
+    padding: 15px 20px;
     background-color: #111111;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
     width: 100%;
+    position: fixed; /* Change to fixed to ensure it's always at the top */
+    top: 0;
+    left: 0; /* Ensures it aligns with the left edge of the screen */
     z-index: 999;
-    min-height: 60px; /* Ensure the header takes more vertical space */
+    margin: 0; /* Remove any margin */
   }
+  
 
   .nav-left, .nav-right {
     flex: 1;
@@ -65,7 +67,7 @@
 
   a.nav-button:hover {
     color: #ffffff;
-    background-color: #00c8ff;
+    background-color: #ffffff;
   }
 
   section {
