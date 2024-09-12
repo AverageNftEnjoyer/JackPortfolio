@@ -91,14 +91,14 @@
   background-color: #111111; /* Optional: keep background color */
 }
 
-/* Ensure the intro-container maintains a column layout */
+
 .intro-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 10px; /* Reduce padding to bring content closer */
+  padding: 20px;
 }
 
 /* Styling for the icon container */
@@ -106,32 +106,25 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15px; /* Adjust spacing between icons */
-  margin-bottom: 10px; /* Reduce space between icons and the text below */
-  margin-top: -10px; /* Reduce space above icons to bring them closer to the header */
+  gap: 20px; /* Add spacing between icons */
+  margin-bottom: 20px; /* Space below icons */
 }
 
 /* Individual icon styling */
 .icon {
-  width: 45px;  /* Adjust icon size if needed */
-  height: 45px;
+  width: 50px;  /* Adjust as needed */
+  height: 50px;
   cursor: pointer;
 }
 
-/* Adjust the spacing for the intro text (Hello, I'm Jack) */
-.intro-text h1 {
-  margin-top: -10px; /* Move the text closer to the icons */
-  margin-bottom: 10px; /* Reduce space between the lines of the heading */
-  line-height: 1; /* Decrease the line height to compact the text */
-}
-
-/* Floating icons styling (if necessary) */
+/* Additional floating icons styling (if necessary) */
 .floating-icon {
   width: 30px;
   height: 30px;
   position: absolute;
   transition: transform 3s linear;
 }
+
 
   .greeting {
     font-size: 2.5rem;
@@ -142,6 +135,12 @@
     height: 80px;
     margin-bottom: 10px;
     border-radius: 50%;
+  }
+
+  .intro-text h1 {
+    font-size: 2.5rem;
+    line-height: 1.4;
+    white-space: normal;
   }
 
   .intro-text h1 span {
