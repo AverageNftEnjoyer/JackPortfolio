@@ -1,81 +1,105 @@
-function moveIcons() {
-    const icons = document.querySelectorAll('.floating-icon');
-    const mainContent = document.querySelector('#main-content'); // Reference to the main content section
-    const introText = document.querySelector('.intro-text'); // The intro text section
-    const detailsSection = document.querySelector('.details'); // The details section
-    const mainRect = mainContent.getBoundingClientRect(); // Get the position and size of #main-content
-    const introRect = introText.getBoundingClientRect(); // Get the bounding box of intro text
-    const detailsRect = detailsSection.getBoundingClientRect(); // Get the bounding box of details section
+// Utility function to get a random number within a given range
+function getRandomInRange(min, max) {
+    return Math.random() * (max - min) + min;
+}
 
-    const halfLength = Math.floor(icons.length / 2); // Divide the icons into two groups
+// Function to check for collisions with text elements
+function isCollidingWithElements(x, y, iconWidth, iconHeight) {
+    const textElements = document.querySelectorAll('.intro-text h1, .details'); // Text elements to avoid
 
-    icons.forEach((icon, index) => {
-        const iconRect = icon.getBoundingClientRect(); // Get the current position of the icon
-        const maxX = mainRect.width - icon.clientWidth; // Maximum X boundary within the main-content
-        let posYStart, posYEnd;
+    for (const element of textElements) {
+        const elementRect = element.getBoundingClientRect();
+        if (
+            x < elementRect.right &&
+            x + iconWidth > elementRect.left &&
+            y < elementRect.bottom &&
+            y + iconHeight > elementRect.top
+        ) {
+            return true;
+        }
+    }
+    return false;
+}
 
-        let currentX = iconRect.left - mainRect.left; // Calculate current X relative to #main-content
-        let currentY = iconRect.top - mainRect.top; // Calculate current Y relative to #main-content
+// Function to initialize the icons and set their spawn locations
+function initializeIcons() {
+    const floatingIcons = document.querySelectorAll('.floating-icon'); // Select floating icons
+    const container = document.querySelector('#main-content'); // Main container reference
+    const detailsSection = document.querySelector('.details'); // Reference to the details section
+    const containerRect = container.getBoundingClientRect(); // Get the container dimensions
+    const detailsRect = detailsSection.getBoundingClientRect(); // Get the details section dimensions
+    const iconSize = 30; // Set the icon size (for collision and positioning)
+
+    const halfLength = Math.floor(floatingIcons.length / 2); // Divide icons into two halves
+
+    floatingIcons.forEach((icon, index) => {
+        icon.style.display = 'block'; // Ensure the icon is visible
+
+        let posX, posY;
 
         // First half of icons spawn above the intro text
         if (index < halfLength) {
-            posYStart = mainRect.top; // Starting Y position (top of the main-content)
-            posYEnd = introRect.top - icon.clientHeight; // Ending Y position (just above the intro text)
-        } 
+            do {
+                posX = getRandomInRange(containerRect.left, containerRect.right - iconSize); // X within container
+                posY = getRandomInRange(containerRect.top, detailsRect.top - iconSize); // Y above the details
+            } while (isCollidingWithElements(posX, posY, icon.offsetWidth, icon.offsetHeight));
+        }
         // Second half of icons spawn below the details section
         else {
-            posYStart = detailsRect.bottom + icon.clientHeight; // Starting Y position (just below the details section)
-            posYEnd = mainRect.bottom - icon.clientHeight; // Ending Y position (bottom of the main-content)
+            do {
+                posX = getRandomInRange(containerRect.left, containerRect.right - iconSize); // X within container
+                posY = getRandomInRange(detailsRect.bottom, containerRect.bottom - iconSize); // Y below the details
+            } while (isCollidingWithElements(posX, posY, icon.offsetWidth, icon.offsetHeight));
         }
 
-        // Generate random positions within the boundaries
-        let randomX = Math.floor(Math.random() * maxX); // Random X position within the width
-        let randomY = Math.floor(Math.random() * (posYEnd - posYStart)) + posYStart - mainRect.top; // Random Y position
+        // Set initial position and velocity for each icon
+        icon.dataset.posX = posX;
+        icon.dataset.posY = posY;
+        icon.dataset.velX = getRandomInRange(-5, 3.5) || 1; // Random X velocity
+        icon.dataset.velY = getRandomInRange(-5, 3.5) || 1; // Random Y velocity
 
-        // Generate random movement values for X and Y
-        let moveX = Math.floor(Math.random() * (maxX / 5)) - (maxX / 10); // Random X movement
-        let moveY = Math.floor(Math.random() * (posYEnd / 5)) - (posYEnd / 10); // Random Y movement
-        const randomDuration = Math.floor(Math.random() * 5000) + 3000; // Random duration between 3-8 seconds
-
-        // Check if the icon will move out of bounds on X axis, and reverse direction if necessary
-        if (currentX + moveX > maxX || currentX + moveX < 0) {
-            moveX = -moveX; // Reverse direction on the X axis
-        }
-
-        // Check if the icon will move out of bounds on Y axis, and reverse direction if necessary
-        if (currentY + moveY > posYEnd || currentY + moveY < posYStart - mainRect.top) {
-            moveY = -moveY; // Reverse direction on the Y axis
-        }
-
-        // Check if the icon collides with any text elements, and reverse direction if necessary
-        let colliding = false;
-        [introText, detailsSection].forEach(textElement => {
-            const textRect = textElement.getBoundingClientRect(); // Get bounding box of text element
-
-            if (
-                currentX + moveX < textRect.right - mainRect.left &&
-                currentX + moveX + icon.clientWidth > textRect.left - mainRect.left &&
-                currentY + moveY < textRect.bottom - mainRect.top &&
-                currentY + moveY + icon.clientHeight > textRect.top - mainRect.top
-            ) {
-                colliding = true; // Mark as colliding
-            }
-        });
-
-        // If colliding with text, reverse direction
-        if (colliding) {
-            moveX = -moveX;
-            moveY = -moveY;
-        }
-
-        // Apply the initial position and movement with a smooth transition
-        icon.style.transition = `transform ${randomDuration}ms linear`;
-        icon.style.transform = `translate(${randomX}px, ${randomY}px)`;
+        // Apply the initial position to the icon
+        icon.style.transform = `translate(${posX - containerRect.left}px, ${posY - containerRect.top}px)`;
+        icon.style.visibility = 'visible'; // Ensure the icon is visible
     });
+
+    animateIcons(); // Start the animation
 }
 
-// Repeatedly move the icons every few seconds
-setInterval(moveIcons, 3000);
+// Function to animate the icons (placeholder)
+function animateIcons() {
+    const floatingIcons = document.querySelectorAll('.floating-icon');
+    floatingIcons.forEach(icon => {
+        let posX = parseFloat(icon.dataset.posX);
+        let posY = parseFloat(icon.dataset.posY);
+        let velX = parseFloat(icon.dataset.velX);
+        let velY = parseFloat(icon.dataset.velY);
+        const container = document.querySelector('#main-content');
+        const containerRect = container.getBoundingClientRect(); // Get container bounds
 
-// Trigger initial movement when the page loads
-document.addEventListener('DOMContentLoaded', moveIcons);
+        // Update icon position based on velocity
+        posX += velX;
+        posY += velY;
+
+        // Check boundaries and reverse direction if necessary
+        if (posX <= containerRect.left || posX >= containerRect.right - icon.clientWidth) {
+            velX = -velX;
+        }
+        if (posY <= containerRect.top || posY >= containerRect.bottom - icon.clientHeight) {
+            velY = -velY;
+        }
+
+        // Update the transform position and store new values
+        icon.style.transform = `translate(${posX - containerRect.left}px, ${posY - containerRect.top}px)`;
+        icon.dataset.posX = posX;
+        icon.dataset.posY = posY;
+        icon.dataset.velX = velX;
+        icon.dataset.velY = velY;
+    });
+
+    // Continue the animation
+    requestAnimationFrame(animateIcons);
+}
+
+// Initialize the icons when the page loads
+document.addEventListener('DOMContentLoaded', initializeIcons);
