@@ -1,4 +1,10 @@
-// Utility function to get a random number within a given range
+
+
+const detailsSection = document.querySelector('.details');
+const detailsRect = detailsSection.getBoundingClientRect();
+const exclusionMargin = 300; 
+const textBuffer = 100; 
+
 function getRandomInRange(min, max) {
     return Math.random() * (max - min) + min;
 }
