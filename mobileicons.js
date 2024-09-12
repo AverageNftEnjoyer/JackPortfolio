@@ -28,12 +28,14 @@ function initializeIcons() {
     const detailsSection = document.querySelector('.details'); // Reference to the details section
     const containerRect = container.getBoundingClientRect(); // Get the container dimensions
     const detailsRect = detailsSection.getBoundingClientRect(); // Get the details section dimensions
-    const iconSize = 30; // Set the icon size (for collision and positioning)
+    const iconSize = 50; // Increase the icon size for better visibility
 
     const halfLength = Math.floor(floatingIcons.length / 2); // Divide icons into two halves
 
     floatingIcons.forEach((icon, index) => {
         icon.style.display = 'block'; // Ensure the icon is visible
+        icon.style.width = `${iconSize}px`; // Set the icon width
+        icon.style.height = `${iconSize}px`; // Set the icon height
 
         let posX, posY;
 
@@ -77,16 +79,18 @@ function animateIcons() {
         let posY = parseFloat(icon.dataset.posY);
         let velX = parseFloat(icon.dataset.velX);
         let velY = parseFloat(icon.dataset.velY);
+        const iconWidth = icon.clientWidth;
+        const iconHeight = icon.clientHeight;
 
         // Update icon position based on velocity
         posX += velX;
         posY += velY;
 
         // Check boundaries and reverse direction if necessary
-        if (posX <= 0 || posX >= containerRect.width - icon.clientWidth) {
+        if (posX <= 0 || posX >= containerRect.width - iconWidth) {
             velX = -velX; // Reverse X direction
         }
-        if (posY <= 0 || posY >= containerRect.height - icon.clientHeight) {
+        if (posY <= 0 || posY >= containerRect.height - iconHeight) {
             velY = -velY; // Reverse Y direction
         }
 
