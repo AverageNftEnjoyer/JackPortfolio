@@ -66,16 +66,17 @@ function initializeIcons() {
     animateIcons(); // Start the animation
 }
 
-// Function to animate the icons (placeholder)
+// Function to animate the icons
 function animateIcons() {
-    const floatingIcons = document.querySelectorAll('.floating-icon');
+    const floatingIcons = document.querySelectorAll('.floating-icon'); // Select floating icons
+    const container = document.querySelector('#main-content'); // Main container reference
+    const containerRect = container.getBoundingClientRect(); // Get container bounds
+
     floatingIcons.forEach(icon => {
         let posX = parseFloat(icon.dataset.posX);
         let posY = parseFloat(icon.dataset.posY);
         let velX = parseFloat(icon.dataset.velX);
         let velY = parseFloat(icon.dataset.velY);
-        const container = document.querySelector('#main-content');
-        const containerRect = container.getBoundingClientRect(); // Get container bounds
 
         // Update icon position based on velocity
         posX += velX;
@@ -83,10 +84,10 @@ function animateIcons() {
 
         // Check boundaries and reverse direction if necessary
         if (posX <= containerRect.left || posX >= containerRect.right - icon.clientWidth) {
-            velX = -velX;
+            velX = -velX; // Reverse X direction
         }
         if (posY <= containerRect.top || posY >= containerRect.bottom - icon.clientHeight) {
-            velY = -velY;
+            velY = -velY; // Reverse Y direction
         }
 
         // Update the transform position and store new values
