@@ -139,6 +139,15 @@ function animateIcons() {
 
     requestAnimationFrame(animateIcons); // Continue the animation loop
 }
+function typingEffect() {
+    if (index < text.length) {
+        typingElement.textContent += text.charAt(index);
+        index++;
+        setTimeout(typingEffect, speed);
+    } else {
+        initializeIcons();
+    }
+}
 
 floatingIcons.forEach(icon => {
     icon.style.visibility = 'hidden';
