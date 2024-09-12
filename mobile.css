@@ -83,10 +83,20 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Ensures the content takes at least the full height of the viewport */
+    height: 100vh; /* Ensures the content takes up the full height of the viewport */
     position: relative; /* Needed to allow floating icons to move inside */
+    overflow: hidden; /* Prevent icons from floating outside the container */
     padding: 20px 0; /* Adds some spacing within the content, but prevents gaps at the top/bottom */
-  }
+}
+
+.floating-icon {
+    width: 30px;  /* Adjust the icon size for mobile */
+    height: 30px;
+    position: absolute; /* Allows the icon to move within the container */
+    transition: transform 3s linear; /* Smooth transition for movement */
+    pointer-events: none; /* Prevent icons from interfering with text or clickable elements */
+}
+
 
   .intro-container {
     text-align: center;
@@ -134,14 +144,6 @@
 
   .highlight-white {
     color: #ffffff;
-  }
-
-  /* Floating Icons Styles */
-  .floating-icon {
-    width: 30px;  /* Smaller icons for mobile */
-    height: 30px;
-    position: absolute; /* Allows the icon to move within the container */
-    transition: transform 3s linear; /* Smooth transition for movement */
   }
 
   .details {

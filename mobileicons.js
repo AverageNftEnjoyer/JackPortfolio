@@ -1,11 +1,10 @@
-// Utility function to get a random number within a given range
 function getRandomInRange(min, max) {
     return Math.random() * (max - min) + min;
 }
 
 // Function to check for collisions with text elements
 function isCollidingWithElements(x, y, iconWidth, iconHeight) {
-    const textElements = document.querySelectorAll('.greeting'); // Only check against the greeting section
+    const textElements = document.querySelectorAll('.greeting, .intro-text h1, .details'); // Text elements to avoid
 
     for (const element of textElements) {
         const elementRect = element.getBoundingClientRect();
@@ -25,9 +24,7 @@ function isCollidingWithElements(x, y, iconWidth, iconHeight) {
 function initializeIcons() {
     const floatingIcons = document.querySelectorAll('.floating-icon'); // Select floating icons
     const container = document.querySelector('#main-content'); // Main container reference
-    const greetingSection = document.querySelector('.greeting'); // Reference to the greeting section
     const containerRect = container.getBoundingClientRect(); // Get the container dimensions
-    const greetingRect = greetingSection.getBoundingClientRect(); // Get the greeting section dimensions
     const iconSize = 50; // Icon size for visibility
 
     floatingIcons.forEach((icon) => {
@@ -37,10 +34,10 @@ function initializeIcons() {
 
         let posX, posY;
 
-        // Spawn icons within or near the greeting section
+        // Loop until a valid position is found that does not collide with text elements
         do {
-            posX = getRandomInRange(greetingRect.left - containerRect.left, greetingRect.right - containerRect.left - iconSize); // X within greeting section width
-            posY = getRandomInRange(greetingRect.top - containerRect.top, greetingRect.bottom - containerRect.top - iconSize); // Y within or above the greeting section
+            posX = getRandomInRange(0, containerRect.width - iconSize); // X within container width
+            posY = getRandomInRange(0, containerRect.height - iconSize); // Y within container height
         } while (isCollidingWithElements(posX + containerRect.left, posY + containerRect.top, icon.offsetWidth, icon.offsetHeight));
 
         // Set initial position and velocity for each icon
