@@ -88,7 +88,8 @@
   width: 100vw; /* Full width of the viewport */
   position: relative; /* Necessary for absolute positioning of icons */
   overflow: hidden; /* Prevent icons from going outside the container */
-  background-color: #111111; /* Optional: keep background color */
+  background-color: #111111; 
+  margin-top:-25px;
 }
 
 
