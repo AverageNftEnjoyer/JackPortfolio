@@ -1,6 +1,23 @@
-function getRandomInRange(min, max) {
-    return Math.random() * (max - min) + min;
-}
+document.addEventListener('DOMContentLoaded', function () {
+    const text = 'Based in Pittsburgh, PA';
+    const speed = 80; // Typing speed
+    const typingElement = document.getElementById('typing-text');
+    const floatingIcons = document.querySelectorAll('.floating-icon');
+    const textElements = document.querySelectorAll('.intro-text h1, .intro-text .greeting, .details, .move-on-hover');
+    const container = document.getElementById('main-content');
+    const containerRect = container.getBoundingClientRect();
+    
+    // Select the details section to apply the larger barrier
+    const detailsSection = document.querySelector('.details');
+    const detailsRect = detailsSection.getBoundingClientRect();
+    const exclusionMargin = 300; 
+    const textBuffer = 100; 
+    
+    let index = 0;
+
+    function getRandomInRange(min, max) {
+        return Math.random() * (max - min) + min;
+    }
 
 // Function to check for collisions with text elements
 function isCollidingWithElements(x, y, iconWidth, iconHeight) {
@@ -123,5 +140,9 @@ function animateIcons() {
     requestAnimationFrame(animateIcons); // Continue the animation loop
 }
 
-// Initialize the icons when the page loads
-document.addEventListener('DOMContentLoaded', initializeIcons);
+floatingIcons.forEach(icon => {
+    icon.style.visibility = 'hidden';
+    icon.style.display = 'none'; 
+});
+typingEffect();
+});
