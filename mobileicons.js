@@ -55,49 +55,48 @@ function initializeIcons() {
 }
 
 function animateIcons() {
-    const floatingIcons = document.querySelectorAll('.floating-icon'); // Select floating icons
-    const container = document.querySelector('#main-content'); // Main container reference
-    const containerRect = container.getBoundingClientRect(); // Get container bounds
-
-    floatingIcons.forEach(icon => {
+    floatingIcons.forEach((icon) => {
         let posX = parseFloat(icon.dataset.posX);
         let posY = parseFloat(icon.dataset.posY);
         let velX = parseFloat(icon.dataset.velX);
         let velY = parseFloat(icon.dataset.velY);
-        const iconWidth = icon.clientWidth;
-        const iconHeight = icon.clientHeight;
-
-        // Update icon position based on velocity
         posX += velX;
         posY += velY;
 
-        // Check horizontal boundaries (left and right)
-        if (posX <= 0) {
-            posX = 0;
-            velX = -velX; // Reverse X direction if hitting left edge
-        } else if (posX >= containerRect.width - iconWidth) {
-            posX = containerRect.width - iconWidth;
-            velX = -velX; // Reverse X direction if hitting right edge
-        }
+        textElements.forEach((element) => {
+            const elementRect = element.getBoundingClientRect();
+            const iconRect = icon.getBoundingClientRect();
 
-        // Check vertical boundaries (top and bottom)
-        if (posY <= 0) {
-            posY = 0;
-            velY = -velY; // Reverse Y direction if hitting top edge
-        } else if (posY >= containerRect.height - iconHeight) {
-            posY = containerRect.height - iconHeight;
-            velY = -velY; // Reverse Y direction if hitting bottom edge
-        }
+            if (
+                iconRect.left < elementRect.right &&
+                iconRect.right > elementRect.left &&
+                iconRect.top < elementRect.bottom &&
+                iconRect.bottom > elementRect.top
+            ) {
+                if (iconRect.left < elementRect.right && iconRect.right > elementRect.left) {
+                    velX = -velX; // Reverse X velocity
+                    posX += velX * 2; // Move the icon away from the collision area
+                }
+                if (iconRect.top < elementRect.bottom && iconRect.bottom > elementRect.top) {
+                    velY = -velY; // Reverse Y velocity
+                    posY += velY * 2; // Move the icon away from the collision area
+                }
+            }
+        });
 
-        // Apply updated position to icon
-        icon.style.transform = `translate(${posX}px, ${posY}px)`;
+        if (posX <= containerRect.left || posX >= containerRect.right - icon.offsetWidth) {
+            velX = -velX;
+        }
+        if (posY <= containerRect.top || posY >= containerRect.bottom - icon.offsetHeight) {
+            velY = -velY;
+        }
+        icon.style.transform = `translate(${posX - containerRect.left}px, ${posY - containerRect.top}px)`;
         icon.dataset.posX = posX;
         icon.dataset.posY = posY;
         icon.dataset.velX = velX;
         icon.dataset.velY = velY;
     });
 
-    // Continue the animation
     requestAnimationFrame(animateIcons);
 }
 
