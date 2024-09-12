@@ -91,21 +91,39 @@
   background-color: #111111; /* Optional: keep background color */
 }
 
-
-.floating-icon {
-    width: 30px;  /* Adjust the icon size for mobile */
-    height: 30px;
-    position: absolute; /* Allows the icon to move within the container */
-    transition: transform 3s linear; /* Smooth transition for movement */
-    pointer-events: none; /* Prevent icons from interfering with text or clickable elements */
+.intro-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
 }
 
+/* Styling for the icon container */
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px; /* Add spacing between icons */
+  margin-bottom: 20px; /* Space below icons */
+}
 
-  .intro-container {
-    text-align: center;
-    margin-bottom: 20px;
-    padding: 0 10px;
-  }
+/* Individual icon styling */
+.icon {
+  width: 50px;  /* Adjust as needed */
+  height: 50px;
+  cursor: pointer;
+}
+
+/* Additional floating icons styling (if necessary) */
+.floating-icon {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  transition: transform 3s linear;
+}
+
 
   .greeting {
     font-size: 2.5rem;
