@@ -1,165 +1,62 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const text = 'Based in Pittsburgh, PA';
-    const speed = 80; // Typing speed
-    const typingElement = document.getElementById('typing-text');
-    const floatingIcons = document.querySelectorAll('.floating-icon');
-    const textElements = document.querySelectorAll('.intro-text h1, .intro-text .greeting, .details, .move-on-hover');
-    const container = document.getElementById('main-content');
-    
-    // Variables to hold rect and boundary data
-    let containerRect;
-    let detailsRect;
-    let exclusionMargin = 150;
-    let textBuffer = 50;
-    let iconSize = 50;
+// Function to move the icons randomly within the main-content container and ensure they bounce off the walls
+function moveIcons() {
+    const icons = document.querySelectorAll('.floating-icon');
+    const mainContent = document.querySelector('#main-content'); // Reference to the main content section
+    const textElements = document.querySelectorAll('.intro-text h1, .details'); // Text elements to avoid
+    const mainRect = mainContent.getBoundingClientRect(); // Get the position and size of #main-content
 
-    let index = 0;
+    icons.forEach(icon => {
+        const iconRect = icon.getBoundingClientRect(); // Get the current position of the icon
+        const maxX = mainRect.width - icon.clientWidth; // Maximum X boundary within the main-content
+        const maxY = mainRect.height - icon.clientHeight; // Maximum Y boundary within the main-content
 
-    // Function to calculate container and element boundaries
-    function updateBoundaries() {
-        containerRect = container.getBoundingClientRect();
-        const detailsSection = document.querySelector('.details');
-        detailsRect = detailsSection.getBoundingClientRect();
-    }
+        let currentX = iconRect.left - mainRect.left; // Calculate current X relative to #main-content
+        let currentY = iconRect.top - mainRect.top; // Calculate current Y relative to #main-content
 
-    // Utility function to get random numbers within a range
-    function getRandomInRange(min, max) {
-        return Math.random() * (max - min) + min;
-    }
+        // Generate random movement values for X and Y within a smaller range to keep within the container
+        let randomX = Math.floor(Math.random() * (maxX / 5)) - (maxX / 10); // Random X movement
+        let randomY = Math.floor(Math.random() * (maxY / 5)) - (maxY / 10); // Random Y movement
+        const randomDuration = Math.floor(Math.random() * 5000) + 3000; // Random duration between 3-8 seconds
 
-    // Function to check collisions with text and details elements
-    function isCollidingWithElements(x, y, iconWidth, iconHeight) {
-        for (const element of textElements) {
-            const elementRect = element.getBoundingClientRect();
+        // Check if the icon will move out of bounds on X axis, and reverse direction if necessary
+        if (currentX + randomX > maxX || currentX + randomX < 0) {
+            randomX = -randomX; // Reverse direction on the X axis
+        }
+
+        // Check if the icon will move out of bounds on Y axis, and reverse direction if necessary
+        if (currentY + randomY > maxY || currentY + randomY < 0) {
+            randomY = -randomY; // Reverse direction on the Y axis
+        }
+
+        // Check if the icon collides with any text elements, and reverse direction if necessary
+        let colliding = false;
+        textElements.forEach(textElement => {
+            const textRect = textElement.getBoundingClientRect(); // Get bounding box of text element
+
             if (
-                x < elementRect.right + textBuffer &&
-                x + iconWidth > elementRect.left - textBuffer &&
-                y < elementRect.bottom + textBuffer &&
-                y + iconHeight > elementRect.top - textBuffer
+                currentX + randomX < textRect.right - mainRect.left &&
+                currentX + randomX + icon.clientWidth > textRect.left - mainRect.left &&
+                currentY + randomY < textRect.bottom - mainRect.top &&
+                currentY + randomY + icon.clientHeight > textRect.top - mainRect.top
             ) {
-                return true;
+                colliding = true; // Mark as colliding
             }
-        }
-
-        if (
-            x < detailsRect.right + exclusionMargin &&
-            x + iconWidth > detailsRect.left - exclusionMargin &&
-            y < detailsRect.bottom + exclusionMargin &&
-            y + iconHeight > detailsRect.top - exclusionMargin
-        ) {
-            return true;
-        }
-
-        return false;
-    }
-
-    // Function to initialize the floating icons
-    function initializeIcons() {
-        const halfLength = Math.floor(floatingIcons.length / 2);
-
-        floatingIcons.forEach((icon, index) => {
-            let posX, posY;
-
-            // First half of icons should float above the text
-            if (index < halfLength) {
-                do {
-                    posX = getRandomInRange(containerRect.left, containerRect.right - iconSize);
-                    posY = getRandomInRange(containerRect.top, detailsRect.top - iconSize);
-                } while (isCollidingWithElements(posX, posY, icon.offsetWidth, icon.offsetHeight));
-
-            // Second half of icons should float below the text
-            } else {
-                do {
-                    posX = getRandomInRange(containerRect.left, containerRect.right - iconSize);
-                    posY = getRandomInRange(detailsRect.bottom, containerRect.bottom - iconSize);
-                } while (isCollidingWithElements(posX, posY, icon.offsetWidth, icon.offsetHeight));
-            }
-
-            icon.dataset.posX = posX;
-            icon.dataset.posY = posY;
-
-            // Set initial velocity
-            icon.dataset.velX = getRandomInRange(-3, 3) || 1;
-            icon.dataset.velY = getRandomInRange(-3, 3) || 1;
-
-            // Apply initial position
-            icon.style.transform = `translate(${posX - containerRect.left}px, ${posY - containerRect.top}px)`;
-            icon.style.visibility = 'visible';
         });
 
-        // Start the animation after initializing icons
-        requestAnimationFrame(animateIcons);
-    }
-
-    // Function to animate the icons
-    function animateIcons() {
-        floatingIcons.forEach((icon) => {
-            let posX = parseFloat(icon.dataset.posX);
-            let posY = parseFloat(icon.dataset.posY);
-            let velX = parseFloat(icon.dataset.velX);
-            let velY = parseFloat(icon.dataset.velY);
-            posX += velX;
-            posY += velY;
-
-            textElements.forEach((element) => {
-                const elementRect = element.getBoundingClientRect();
-                const iconRect = icon.getBoundingClientRect();
-
-                if (
-                    iconRect.left < elementRect.right &&
-                    iconRect.right > elementRect.left &&
-                    iconRect.top < elementRect.bottom &&
-                    iconRect.bottom > elementRect.top
-                ) {
-                    if (iconRect.left < elementRect.right && iconRect.right > elementRect.left) {
-                        velX = -velX; // Reverse X velocity on collision
-                        posX += velX * 2; // Move away from the collision
-                    }
-                    if (iconRect.top < elementRect.bottom && iconRect.bottom > elementRect.top) {
-                        velY = -velY; // Reverse Y velocity on collision
-                        posY += velY * 2;
-                    }
-                }
-            });
-
-            // Bounce off container edges
-            if (posX <= containerRect.left || posX >= containerRect.right - icon.offsetWidth) {
-                velX = -velX;
-            }
-            if (posY <= containerRect.top || posY >= containerRect.bottom - icon.offsetHeight) {
-                velY = -velY;
-            }
-
-            icon.style.transform = `translate(${posX - containerRect.left}px, ${posY - containerRect.top}px)`;
-            icon.dataset.posX = posX;
-            icon.dataset.posY = posY;
-            icon.dataset.velX = velX;
-            icon.dataset.velY = velY;
-        });
-
-        requestAnimationFrame(animateIcons); // Loop the animation
-    }
-
-    // Typing effect for the text
-    function typingEffect() {
-        if (index < text.length) {
-            typingElement.textContent += text.charAt(index);
-            index++;
-            setTimeout(typingEffect, speed);
-        } else {
-            updateBoundaries(); // Update boundaries after typing finishes
-            initializeIcons(); // Initialize icons after typing
+        // If colliding with text, reverse direction
+        if (colliding) {
+            randomX = -randomX;
+            randomY = -randomY;
         }
-    }
 
-    // Initial setup: Hide icons and start typing effect
-    floatingIcons.forEach(icon => {
-        icon.style.visibility = 'hidden';
+        // Apply the transformation with a smooth transition
+        icon.style.transition = `transform ${randomDuration}ms linear`;
+        icon.style.transform = `translate(${currentX + randomX}px, ${currentY + randomY}px)`;
     });
+}
 
-    // Start the typing effect
-    typingEffect();
+// Repeatedly move the icons every few seconds
+setInterval(moveIcons, 3000);
 
-    // Recalculate boundaries on resize to ensure correct behavior
-    window.addEventListener('resize', updateBoundaries);
-});
+// Trigger initial movement when the page loads
+document.addEventListener('DOMContentLoaded', moveIcons);
