@@ -25,38 +25,21 @@ function isCollidingWithElements(x, y, iconWidth, iconHeight) {
 function initializeIcons() {
     const floatingIcons = document.querySelectorAll('.floating-icon'); // Select floating icons
     const container = document.querySelector('#main-content'); // Main container reference
-    const greetingSection = document.querySelector('.greeting'); // Reference to the greeting section
-    const introText = document.querySelector('.intro-text'); // Reference to the intro text section
-    const detailsSection = document.querySelector('.details'); // Reference to the details section
     const containerRect = container.getBoundingClientRect(); // Get the container dimensions
-    const greetingRect = greetingSection.getBoundingClientRect(); // Get the greeting section dimensions
-    const introRect = introText.getBoundingClientRect(); // Get the intro text section dimensions
-    const detailsRect = detailsSection.getBoundingClientRect(); // Get the details section dimensions
-    const iconSize = 50; // Increase the icon size for better visibility
+    const iconSize = 50; // Icon size for visibility
 
-    const halfLength = Math.floor(floatingIcons.length / 2); // Divide icons into two halves
-
-    floatingIcons.forEach((icon, index) => {
+    floatingIcons.forEach((icon) => {
         icon.style.display = 'block'; // Ensure the icon is visible
         icon.style.width = `${iconSize}px`; // Set the icon width
         icon.style.height = `${iconSize}px`; // Set the icon height
 
         let posX, posY;
 
-        // First half of icons spawn above the greeting and intro text
-        if (index < halfLength) {
-            do {
-                posX = getRandomInRange(0, containerRect.width - iconSize); // X within container width
-                posY = getRandomInRange(0, greetingRect.top - containerRect.top - iconSize); // Y above the greeting and intro text
-            } while (isCollidingWithElements(posX + containerRect.left, posY + containerRect.top, icon.offsetWidth, icon.offsetHeight));
-        }
-        // Second half of icons spawn below the details section
-        else {
-            do {
-                posX = getRandomInRange(0, containerRect.width - iconSize); // X within container width
-                posY = getRandomInRange(detailsRect.bottom - containerRect.top, containerRect.height - iconSize); // Y below the details
-            } while (isCollidingWithElements(posX + containerRect.left, posY + containerRect.top, icon.offsetWidth, icon.offsetHeight));
-        }
+        // Loop until a valid position is found that does not collide with text elements
+        do {
+            posX = getRandomInRange(0, containerRect.width - iconSize); // X within container width
+            posY = getRandomInRange(0, containerRect.height - iconSize); // Y within container height
+        } while (isCollidingWithElements(posX + containerRect.left, posY + containerRect.top, icon.offsetWidth, icon.offsetHeight));
 
         // Set initial position and velocity for each icon
         icon.dataset.posX = posX;
@@ -90,12 +73,20 @@ function animateIcons() {
         posX += velX;
         posY += velY;
 
-        // Check boundaries and reverse direction if necessary
-        if (posX <= 0 || posX >= containerRect.width - iconWidth) {
+        // Check boundaries and reverse direction if necessary, ensure icon stays within bounds
+        if (posX <= 0) {
+            posX = 0;
             velX = -velX; // Reverse X direction
+        } else if (posX >= containerRect.width - iconWidth) {
+            posX = containerRect.width - iconWidth;
+            velX = -velX;
         }
-        if (posY <= 0 || posY >= containerRect.height - iconHeight) {
+        if (posY <= 0) {
+            posY = 0;
             velY = -velY; // Reverse Y direction
+        } else if (posY >= containerRect.height - iconHeight) {
+            posY = containerRect.height - iconHeight;
+            velY = -velY;
         }
 
         // Update the transform position and store new values
