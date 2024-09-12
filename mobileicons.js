@@ -43,8 +43,8 @@ function initializeIcons() {
         // Set initial position and velocity for each icon
         icon.dataset.posX = posX;
         icon.dataset.posY = posY;
-        icon.dataset.velX = getRandomInRange(-1.5, 1.5); // Moderate random X velocity
-        icon.dataset.velY = getRandomInRange(-1.5, 1.5); // Moderate random Y velocity
+        icon.dataset.velX = getRandomInRange(-3.5, 1.5); // Moderate random X velocity
+        icon.dataset.velY = getRandomInRange(-3.5, 1.5); // Moderate random Y velocity
 
         // Apply the initial position to the icon
         icon.style.transform = `translate(${posX}px, ${posY}px)`;
@@ -54,7 +54,6 @@ function initializeIcons() {
     animateIcons(); // Start the animation
 }
 
-// Function to animate the icons
 function animateIcons() {
     const floatingIcons = document.querySelectorAll('.floating-icon'); // Select floating icons
     const container = document.querySelector('#main-content'); // Main container reference
@@ -72,23 +71,25 @@ function animateIcons() {
         posX += velX;
         posY += velY;
 
-        // Check boundaries and reverse direction if necessary, ensure icon stays within bounds
+        // Check horizontal boundaries (left and right)
         if (posX <= 0) {
             posX = 0;
-            velX = -velX; // Reverse X direction
+            velX = -velX; // Reverse X direction if hitting left edge
         } else if (posX >= containerRect.width - iconWidth) {
             posX = containerRect.width - iconWidth;
-            velX = -velX;
-        }
-        if (posY <= 0) {
-            posY = 0;
-            velY = -velY; // Reverse Y direction
-        } else if (posY >= containerRect.height - iconHeight) {
-            posY = containerRect.height - iconHeight;
-            velY = -velY;
+            velX = -velX; // Reverse X direction if hitting right edge
         }
 
-        // Update the transform position and store new values
+        // Check vertical boundaries (top and bottom)
+        if (posY <= 0) {
+            posY = 0;
+            velY = -velY; // Reverse Y direction if hitting top edge
+        } else if (posY >= containerRect.height - iconHeight) {
+            posY = containerRect.height - iconHeight;
+            velY = -velY; // Reverse Y direction if hitting bottom edge
+        }
+
+        // Apply updated position to icon
         icon.style.transform = `translate(${posX}px, ${posY}px)`;
         icon.dataset.posX = posX;
         icon.dataset.posY = posY;

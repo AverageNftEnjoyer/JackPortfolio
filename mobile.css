@@ -78,16 +78,19 @@
     color: #e6e6e6;
   }
 
-  #main-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Ensures the content takes up the full height of the viewport */
-    position: relative; /* Needed to allow floating icons to move inside */
-    overflow: hidden; /* Prevent icons from floating outside the container */
-    padding: 20px 0; /* Adds some spacing within the content, but prevents gaps at the top/bottom */
+ /* Ensure the container is fixed to the viewport */
+#main-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full height of the viewport */
+  width: 100vw; /* Full width of the viewport */
+  position: relative; /* Necessary for absolute positioning of icons */
+  overflow: hidden; /* Prevent icons from going outside the container */
+  background-color: #111111; /* Optional: keep background color */
 }
+
 
 .floating-icon {
     width: 30px;  /* Adjust the icon size for mobile */
