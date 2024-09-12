@@ -1,4 +1,3 @@
-// Function to move the icons randomly within the main-content container and ensure they bounce off the walls
 function moveIcons() {
     const icons = document.querySelectorAll('.floating-icon');
     const mainContent = document.querySelector('#main-content'); // Reference to the main content section

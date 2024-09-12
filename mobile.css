@@ -34,13 +34,12 @@
     background-color: #111111;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     width: 100%;
-    position: fixed; /* Change to fixed to ensure it's always at the top */
+    position: fixed;
     top: 0;
-    left: 0; /* Ensures it aligns with the left edge of the screen */
+    left: 0;
     z-index: 999;
-    margin: 0; /* Remove any margin */
+    margin: 0;
   }
-  
 
   .nav-left, .nav-right {
     flex: 1;
@@ -85,6 +84,7 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh; /* Ensures the content takes at least the full height of the viewport */
+    position: relative; /* Needed to allow floating icons to move inside */
     padding: 20px 0; /* Adds some spacing within the content, but prevents gaps at the top/bottom */
   }
 
@@ -136,13 +136,13 @@
     color: #ffffff;
   }
 
-  @media screen and (max-width: 393px) {
-    .floating-icon {
-      width: 30px;  /* Smaller icons for mobile */
-      height: 30px;
-    }
-  }  
-  
+  /* Floating Icons Styles */
+  .floating-icon {
+    width: 30px;  /* Smaller icons for mobile */
+    height: 30px;
+    position: absolute; /* Allows the icon to move within the container */
+    transition: transform 3s linear; /* Smooth transition for movement */
+  }
 
   .details {
     flex-direction: column;
@@ -190,7 +190,7 @@
   .section__text__p1 {
     font-size: 1.5rem;
     font-weight: bold;
-    color:#d896ff;
+    color: #d896ff;
   }
 
   .section__text__p2 {
