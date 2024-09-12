@@ -1,27 +1,33 @@
 document.addEventListener('DOMContentLoaded', function () {
     const text = 'Based in Pittsburgh, PA';
-    const speed = 80; // Typing speed for the typing effect
+    const speed = 80; // Typing speed
     const typingElement = document.getElementById('typing-text');
     const floatingIcons = document.querySelectorAll('.floating-icon');
     const textElements = document.querySelectorAll('.intro-text h1, .intro-text .greeting, .details, .move-on-hover');
     const container = document.getElementById('main-content');
-    const containerRect = container.getBoundingClientRect();
-
-    // Select the details section to apply the larger barrier
-    const detailsSection = document.querySelector('.details');
-    const detailsRect = detailsSection.getBoundingClientRect();
-    const exclusionMargin = 150; // Adjusted margin for mobile
-    const textBuffer = 50; // Smaller buffer for mobile devices
-    const iconSize = 50; // Smaller icon size for mobile devices
+    
+    // Variables to hold rect and boundary data
+    let containerRect;
+    let detailsRect;
+    let exclusionMargin = 150;
+    let textBuffer = 50;
+    let iconSize = 50;
 
     let index = 0;
 
-    // Function to generate random numbers within a given range
+    // Function to calculate container and element boundaries
+    function updateBoundaries() {
+        containerRect = container.getBoundingClientRect();
+        const detailsSection = document.querySelector('.details');
+        detailsRect = detailsSection.getBoundingClientRect();
+    }
+
+    // Utility function to get random numbers within a range
     function getRandomInRange(min, max) {
         return Math.random() * (max - min) + min;
     }
 
-    // Check if the icon is colliding with the text elements or the details section
+    // Function to check collisions with text and details elements
     function isCollidingWithElements(x, y, iconWidth, iconHeight) {
         for (const element of textElements) {
             const elementRect = element.getBoundingClientRect();
@@ -47,9 +53,9 @@ document.addEventListener('DOMContentLoaded', function () {
         return false;
     }
 
-    // Initialize floating icons and their positions
+    // Function to initialize the floating icons
     function initializeIcons() {
-        const halfLength = Math.floor(floatingIcons.length / 2); // Divide the icons into two groups
+        const halfLength = Math.floor(floatingIcons.length / 2);
 
         floatingIcons.forEach((icon, index) => {
             let posX, posY;
@@ -73,18 +79,19 @@ document.addEventListener('DOMContentLoaded', function () {
             icon.dataset.posY = posY;
 
             // Set initial velocity
-            icon.dataset.velX = getRandomInRange(-3, 3) || 1; // Slower velocities for mobile
+            icon.dataset.velX = getRandomInRange(-3, 3) || 1;
             icon.dataset.velY = getRandomInRange(-3, 3) || 1;
 
             // Apply initial position
             icon.style.transform = `translate(${posX - containerRect.left}px, ${posY - containerRect.top}px)`;
-            icon.style.visibility = 'visible'; // Make icons visible after setting their initial position
+            icon.style.visibility = 'visible';
         });
 
-        animateIcons(); // Start the animation
+        // Start the animation after initializing icons
+        requestAnimationFrame(animateIcons);
     }
 
-    // Animate the floating icons to move around within the container
+    // Function to animate the icons
     function animateIcons() {
         floatingIcons.forEach((icon) => {
             let posX = parseFloat(icon.dataset.posX);
@@ -105,21 +112,22 @@ document.addEventListener('DOMContentLoaded', function () {
                     iconRect.bottom > elementRect.top
                 ) {
                     if (iconRect.left < elementRect.right && iconRect.right > elementRect.left) {
-                        velX = -velX; // Reverse X velocity if colliding with text
-                        posX += velX * 2; // Move the icon away from the collision area
+                        velX = -velX; // Reverse X velocity on collision
+                        posX += velX * 2; // Move away from the collision
                     }
                     if (iconRect.top < elementRect.bottom && iconRect.bottom > elementRect.top) {
-                        velY = -velY; // Reverse Y velocity if colliding with text
+                        velY = -velY; // Reverse Y velocity on collision
                         posY += velY * 2;
                     }
                 }
             });
 
+            // Bounce off container edges
             if (posX <= containerRect.left || posX >= containerRect.right - icon.offsetWidth) {
-                velX = -velX; // Reverse direction on X axis
+                velX = -velX;
             }
             if (posY <= containerRect.top || posY >= containerRect.bottom - icon.offsetHeight) {
-                velY = -velY; // Reverse direction on Y axis
+                velY = -velY;
             }
 
             icon.style.transform = `translate(${posX - containerRect.left}px, ${posY - containerRect.top}px)`;
@@ -129,25 +137,29 @@ document.addEventListener('DOMContentLoaded', function () {
             icon.dataset.velY = velY;
         });
 
-        requestAnimationFrame(animateIcons); // Recursively call to animate continuously
+        requestAnimationFrame(animateIcons); // Loop the animation
     }
 
-    // Typing effect function for the text
+    // Typing effect for the text
     function typingEffect() {
         if (index < text.length) {
             typingElement.textContent += text.charAt(index);
             index++;
             setTimeout(typingEffect, speed);
         } else {
-            initializeIcons(); // Initialize icons after typing effect completes
+            updateBoundaries(); // Update boundaries after typing finishes
+            initializeIcons(); // Initialize icons after typing
         }
     }
 
-    // Hide icons before typing starts
+    // Initial setup: Hide icons and start typing effect
     floatingIcons.forEach(icon => {
         icon.style.visibility = 'hidden';
     });
 
-    // Start typing effect
+    // Start the typing effect
     typingEffect();
+
+    // Recalculate boundaries on resize to ensure correct behavior
+    window.addEventListener('resize', updateBoundaries);
 });
