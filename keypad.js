@@ -14,11 +14,15 @@ function enterNumber(num) {
 // Function to handle submitting the code
 function submitCode() {
     playKeyClickSound(); // Play sound for submit button
-    if (inputCode === "1987") {
+    if (inputCode === "1954") {
         playFullScreenVideo(); 
-    } else {
+    } else if (inputCode === "1234") {
+        alert("Solid Try!"); 
+    }
+     else {
         alert("Incorrect code! Try again."); 
     }
+    
     inputCode = ""; 
     document.getElementById('output').textContent = inputCode; 
 }
