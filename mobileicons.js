@@ -55,8 +55,8 @@ function initializeIcons() {
         // Set initial position and velocity for each icon
         icon.dataset.posX = posX;
         icon.dataset.posY = posY;
-        icon.dataset.velX = getRandomInRange(-5, 3.5) || 1; // Random X velocity
-        icon.dataset.velY = getRandomInRange(-5, 3.5) || 1; // Random Y velocity
+        icon.dataset.velX = getRandomInRange(-2, 2) || 1; // Smaller random X velocity
+        icon.dataset.velY = getRandomInRange(-2, 2) || 1; // Smaller random Y velocity
 
         // Apply the initial position to the icon
         icon.style.transform = `translate(${posX - containerRect.left}px, ${posY - containerRect.top}px)`;
@@ -83,15 +83,15 @@ function animateIcons() {
         posY += velY;
 
         // Check boundaries and reverse direction if necessary
-        if (posX <= containerRect.left || posX >= containerRect.right - icon.clientWidth) {
+        if (posX <= 0 || posX >= containerRect.width - icon.clientWidth) {
             velX = -velX; // Reverse X direction
         }
-        if (posY <= containerRect.top || posY >= containerRect.bottom - icon.clientHeight) {
+        if (posY <= 0 || posY >= containerRect.height - icon.clientHeight) {
             velY = -velY; // Reverse Y direction
         }
 
         // Update the transform position and store new values
-        icon.style.transform = `translate(${posX - containerRect.left}px, ${posY - containerRect.top}px)`;
+        icon.style.transform = `translate(${posX}px, ${posY}px)`;
         icon.dataset.posX = posX;
         icon.dataset.posY = posY;
         icon.dataset.velX = velX;
