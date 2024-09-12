@@ -14,7 +14,7 @@ function enterNumber(num) {
 // Function to handle submitting the code
 function submitCode() {
     playKeyClickSound(); // Play sound for submit button
-    if (inputCode === "1954") {
+    if (inputCode === "1987") {
         playFullScreenVideo(); 
     } else if (inputCode === "1234") {
         alert("Solid Try!"); 
