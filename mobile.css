@@ -96,6 +96,7 @@
 
 .intro-container {
   display: flex;
+  margin-top: 0;
   flex-direction: column;
   justify-content: center;
   align-items: center;
