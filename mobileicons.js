@@ -49,7 +49,9 @@ function initializeIcons() {
         icon.style.width = `${iconSize}px`; // Set the icon width
         icon.style.height = `${iconSize}px`; // Set the icon height
 
-        let posX, posY;
+        let posX = (containerRect.width / 2) - (icon.offsetWidth / 2); // Horizontal center
+        let posY = textRect.bottom + 40; // 40px below the "Pittsburgh, PA" text
+
 
         // Loop until a valid position is found that does not collide with text elements
         do {
@@ -60,8 +62,8 @@ function initializeIcons() {
         // Set initial position and velocity for each icon
         icon.dataset.posX = posX;
         icon.dataset.posY = posY;
-        icon.dataset.velX = getRandomInRange(-1.5, 1.5); // Moderate random X velocity
-        icon.dataset.velY = getRandomInRange(-1.5, 1.5); // Moderate random Y velocity
+        icon.dataset.velX = getRandomInRange(-3.5, 1.5); // Moderate random X velocity
+        icon.dataset.velY = getRandomInRange(-3.5, 1.5); // Moderate random Y velocity
 
         // Apply the initial position to the icon
         icon.style.transform = `translate(${posX}px, ${posY}px)`;
