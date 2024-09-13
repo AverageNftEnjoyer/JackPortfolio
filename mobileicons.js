@@ -2,16 +2,22 @@
 function initializeIcons() {
     const floatingIcons = document.querySelectorAll('.floating-icon');
     
+    // Get screen size using window.innerWidth and window.innerHeight
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+
+    // Get the position of the typing effect text (to position the icons below it)
+    const typingElement = document.getElementById('typing-text');
+    const typingRect = typingElement.getBoundingClientRect(); // Get the position of the text element
+
     floatingIcons.forEach(icon => {
         // Make the icons visible after typing effect finishes
         icon.style.visibility = 'visible';
         icon.style.display = 'block';
         
-        // Set initial random positions for the icons
-        const container = document.querySelector('#main-content');
-        const containerRect = container.getBoundingClientRect();
-        const posX = Math.random() * (containerRect.width - 50); // Random X position
-        const posY = Math.random() * (containerRect.height - 50); // Random Y position
+        // Set initial random positions for the icons based on screen size
+        const posX = Math.random() * (screenWidth - 50); // Random X position
+        const posY = typingRect.bottom + Math.random() * 100; // Position icons below the typing text
 
         // Apply the initial position
         icon.style.transform = `translate(${posX}px, ${posY}px)`;
