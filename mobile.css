@@ -84,8 +84,6 @@
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  height: 100vh; /* Full height of the viewport */
-  width: 100vw; /* Full width of the viewport */
   position: relative; /* Necessary for absolute positioning of icons */
   overflow: hidden; /* Prevent icons from going outside the container */
   background-color: #111111; 
