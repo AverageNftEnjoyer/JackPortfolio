@@ -13,11 +13,9 @@
     background-color: #111111;
     color: #e6e6e6;
     overflow-x: hidden;
-    overflow-y: hidden;
     font-size: 16px;
     height: 100%; /* Ensures the height takes up the full viewport */
     margin: 0; /* Ensures no default margins are applied */
-    padding-top: env(safe-area-inset-top); /* Newer iOS versions */
     scroll-behavior: smooth;
     
   }
