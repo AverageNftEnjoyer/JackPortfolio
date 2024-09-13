@@ -90,6 +90,7 @@
   overflow: hidden; /* Prevent icons from going outside the container */
   background-color: #111111; 
   margin-top:-150px;
+  padding: 20px 10px;
 }
 
 
