@@ -49,7 +49,6 @@ function initializeIcons() {
         icon.style.width = `${iconSize}px`; // Set the icon width
         icon.style.height = `${iconSize}px`; // Set the icon height
 
-        let posX = (containerRect.width / 2) - (icon.offsetWidth / 2); // Horizontal center
         let posY = textRect.bottom; // 40px below the "Pittsburgh, PA" text
 
 
