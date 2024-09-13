@@ -1,5 +1,5 @@
-// Function to initialize the horizontal movement of the floating icons
-function rotateIcons() {
+// Function to initialize the floating movement of the icons
+function floatIcons() {
     const floatingIcons = document.querySelectorAll('.floating-icon'); // Get all icons with the floating-icon class
     const container = document.querySelector('#main-content'); // Main container reference
     const pittsburghText = document.querySelector('.location'); // The element that contains the Pittsburgh, PA text
@@ -12,27 +12,38 @@ function rotateIcons() {
         icon.style.width = '80px'; // Set the width to 80px
         icon.style.height = '80px'; // Set the height to 80px
 
-        let posX = -200 + Math.random() * containerRect.width; // Start icons far off to the left (-200) with random positioning
-        let speed = 1 + Math.random() * 2; // Random speed for each icon between 1 and 3
+        let posX = Math.random() * containerRect.width; // Random starting horizontal position
+        let posY = textRect.bottom + 40 + Math.random() * 100; // Start icons around 40px below the text, with a random vertical offset
+        let speedX = 1 + Math.random() * 1.5; // Random horizontal speed for each icon
+        let speedY = 0.5 + Math.random() * 0.5; // Random vertical floating speed for each icon
+        let directionY = Math.random() < 0.5 ? 1 : -1; // Random initial direction for vertical movement (up or down)
 
-        // Position the icon horizontally and below the Pittsburgh, PA text
+        // Position the icon initially
         icon.style.position = 'absolute';
-        icon.style.top = `${textRect.bottom + 40}px`; // Position the icons 40px below the "Pittsburgh, PA" text
-        icon.style.left = `${posX}px`; // Add margin to the left to start them far off screen
+        icon.style.left = `${posX}px`;
+        icon.style.top = `${posY}px`;
 
         function animateIcon() {
-            // Move the icon to the right
-            posX += speed;
+            // Move the icon horizontally
+            posX += speedX;
+
+            // Move the icon vertically in a floating manner (up and down)
+            posY += speedY * directionY;
+
+            // Reverse vertical direction if the icon reaches a certain vertical limit (to simulate floating)
+            if (posY <= textRect.bottom + 20 || posY >= textRect.bottom + 120) {
+                directionY *= -1; // Reverse direction
+            }
 
             // If the icon moves off the right side of the screen, reset it to the left
             if (posX > containerRect.width) {
-                posX = -icon.offsetWidth - 200; // Move it far off the left edge of the screen (-200)
+                posX = -icon.offsetWidth; // Move it just off the left edge of the screen
             }
 
-            // Apply the transformation
-            icon.style.transform = `translateX(${posX}px)`;
+            // Apply the updated position to the icon
+            icon.style.transform = `translate(${posX}px, ${posY - textRect.bottom}px)`;
 
-            // Keep animating
+            // Continue animating
             requestAnimationFrame(animateIcon);
         }
 
@@ -41,37 +52,5 @@ function rotateIcons() {
     });
 }
 
-// Function for typing effect
-function typingEffect() {
-    const text = 'Based in Pittsburgh, PA';
-    const speed = 80; // Typing speed
-    const typingElement = document.getElementById('typing-text');
-    let index = 0;
-
-    function type() {
-        if (index < text.length) {
-            typingElement.textContent += text.charAt(index);
-            index++;
-            setTimeout(type, speed);
-        } else {
-            // Once typing is complete, initialize the icon rotation
-            rotateIcons();
-        }
-    }
-
-    // Start the typing effect
-    type();
-}
-
-// Initialize the typing effect when the page is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    const floatingIcons = document.querySelectorAll('.floating-icon');
-    
-    // Hide icons initially
-    floatingIcons.forEach(icon => {
-        icon.style.visibility = 'hidden';
-        icon.style.display = 'none'; 
-    });
-
-    typingEffect(); // Start typing effect
-});
+// Initialize the floating effect when the page loads
+document.addEventListener('DOMContentLoaded', floatIcons);
