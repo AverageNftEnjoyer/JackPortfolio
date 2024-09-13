@@ -1,10 +1,8 @@
 // Function to initialize the floating icons
 function initializeIcons() {
     const floatingIcons = document.querySelectorAll('.floating-icon');
-    
-    // Get screen size using window.innerWidth and window.innerHeight
-    const screenWidth = window.innerWidth;
-    const screenHeight = window.innerHeight;
+        const screenWidth = 100;
+    const screenHeight = 100;
 
     // Get the position of the typing effect text (to position the icons below it)
     const typingElement = document.getElementById('typing-text');
