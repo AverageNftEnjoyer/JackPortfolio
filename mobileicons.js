@@ -1,4 +1,13 @@
-// Function to initialize the horizontal movement of the floating icons
+document.addEventListener('DOMContentLoaded', function () {
+    const text = 'Based in Pittsburgh, PA';
+    const speed = 80; // Typing speed
+    const typingElement = document.getElementById('typing-text');
+    const floatingIcons = document.querySelectorAll('.floating-icon');
+    const textElements = document.querySelectorAll('.intro-text h1, .intro-text .greeting, .details, .move-on-hover');
+    const container = document.getElementById('main-content');
+    const containerRect = container.getBoundingClientRect();
+    
+   // Function to initialize the horizontal movement of the floating icons
 function rotateIcons() {
     const floatingIcons = document.querySelectorAll('.floating-icon'); // Get all icons with the floating-icon class
     const container = document.querySelector('#main-content'); // Main container reference
@@ -43,3 +52,20 @@ function rotateIcons() {
 
 // Initialize the rotation when the page is loaded
 document.addEventListener('DOMContentLoaded', rotateIcons);
+
+function typingEffect() {
+    if (index < text.length) {
+        typingElement.textContent += text.charAt(index);
+        index++;
+        setTimeout(typingEffect, speed);
+    } else {
+        initializeIcons();
+    }
+}
+
+floatingIcons.forEach(icon => {
+    icon.style.visibility = 'hidden';
+    icon.style.display = 'none'; 
+});
+typingEffect();
+});
