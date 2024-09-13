@@ -125,8 +125,9 @@
   width: 30px;
   height: 30px;
   position: absolute;
-  transition: transform 3s linear;
+  transition: opacity 0.3s ease-in-out;
 }
+
 
 
   .greeting {
