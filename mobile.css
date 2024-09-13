@@ -30,7 +30,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 30px;
+    padding: 20px 20px; /* Adjust padding as needed */
     background-color: #111111;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     width: 100%;
@@ -38,7 +38,9 @@
     top: 0;
     left: 0;
     z-index: 999;
-  }
+    height: calc(60px + env(safe-area-inset-top)); /* Adjust height and account for safe area */
+    padding-top: env(safe-area-inset-top); /* Ensure padding for safe area on iPhones */
+}
 
   .nav-left, .nav-right {
     flex: 1;
