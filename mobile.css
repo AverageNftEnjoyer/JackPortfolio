@@ -90,7 +90,6 @@
   overflow: hidden; /* Prevent icons from going outside the container */
   background-color: #111111; 
   margin-top:-130px;
-  margin-bottom: -20px;
   padding: 20px 10px;
 }
 
@@ -252,7 +251,7 @@
 
   /* About Section */
   #about {
-    padding: 20px;
+    margin-top: -50px;
     text-align: center;
   }
 
