@@ -16,23 +16,11 @@
     font-size: 16px;
     height: 100%; /* Ensures the height takes up the full viewport */
     margin: 0; /* Ensures no default margins are applied */
-    padding: 0; /* Removes any extra padding */
+    padding-top: env(safe-area-inset-top); /* Newer iOS versions */
     scroll-behavior: smooth;
     
   }
 
-  body {
-    min-height: 100vh; /* Ensure body takes full viewport height */
-    margin: 0;
-    padding-top: constant(safe-area-inset-top); /* Older iOS versions */
-    padding-top: env(safe-area-inset-top); /* Newer iOS versions */
-    padding-bottom: env(safe-area-inset-bottom); /* Handle bottom safe area on iPhones */
-    padding-left: env(safe-area-inset-left); /* Left padding for notched devices */
-    padding-right: env(safe-area-inset-right); /* Right padding for notched devices */
-    overscroll-behavior: none; /* Prevent overscroll bounce effect on Safari */
-    touch-action: none; /* Prevent unintended touch scroll issues */
-  }
-  
   p, h1, h2, h3, h4, h5, h6 {
     color: #e6e6e6;
     margin: 0;
