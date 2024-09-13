@@ -122,8 +122,8 @@
 
 /* Additional floating icons styling (if necessary) */
 .floating-icon {
-  width: 70px;
-  height: 70px;
+  width: 40px;
+  height: 40px;
   transition: opacity 0.3s ease-in-out;
   z-index: 999;
 }

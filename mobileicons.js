@@ -61,5 +61,5 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Call swapIcons every 2 seconds to change the icons
-    setInterval(swapIcons, 2000);
+    setInterval(swapIcons, 1300);
 });
