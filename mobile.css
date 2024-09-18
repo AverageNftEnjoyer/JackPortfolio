@@ -89,7 +89,7 @@
   position: relative; /* Necessary for absolute positioning of icons */
   overflow: hidden; /* Prevent icons from going outside the container */
   background-color: #111111; 
-  margin-top:-85px;
+  margin-top:-135px;
   padding: 20px 10px;
 }
 
